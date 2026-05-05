@@ -1,0 +1,36 @@
+<header [class.scrolled]="isScrolled" [class.menu-open]="menuOpen" [class.opaque]="isOpaque">
+  <div class="header-container">
+    <div class="header-left">
+      <a routerLink="/" (click)="closeMenu()" aria-label="Ir para a Página Inicial">
+        <img src="/assets/logo.webp" alt="Logotipo do 27º Grupo Escoteiro do Mar" class="logo" fetchpriority="high">
+      </a>
+      
+      <nav class="header-nav desktop-only">
+        <a routerLink="/escotismo">O Escotismo</a>
+        <a routerLink="/nossa-historia">Nossa História</a>
+        <a routerLink="/atividades">Atividades</a>
+        <a routerLink="/contato">Contato</a>
+      </nav>
+    </div>
+
+    <div class="header-right desktop-only">
+      <app-button link="/inscricao" text="Seja Escoteiro" size="sm" [theme]="(isScrolled || isOpaque) ? 'ghost' : 'glass'"></app-button>
+    </div>
+
+    <button class="hamburger mobile-only" (click)="toggleMenu()" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <nav>
+      <a routerLink="/escotismo" (click)="closeMenu()">O Escotismo</a>
+      <a routerLink="/nossa-historia" (click)="closeMenu()">Nossa História</a>
+      <a routerLink="/atividades" (click)="closeMenu()">Atividades</a>
+      <a routerLink="/contato" (click)="closeMenu()">Contato</a>
+      <app-button link="/inscricao" text="Seja Escoteiro" [mobileFullWidth]="true" theme="ghost" (click)="closeMenu()"></app-button>
+    </nav>
+  </div>
+</header>

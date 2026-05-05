@@ -1,0 +1,38 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column map-section">
+      <app-map></app-map>
+      <address class="footer-address">
+        Rua Almirante Custodio de Melo, s/n, Jacuecanga, Angra dos Reis, RJ
+      </address>
+    </div>
+
+    <div class="footer-column">
+      <h3 class="column-title">Links</h3>
+      <div class="separator"></div>
+      <ul class="footer-list">
+        @for (link of links; track link.name) {
+          <li>
+            <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3 class="column-title">Conecte-se</h3>
+      <div class="separator"></div>
+      <ul class="footer-list">
+        @for (item of social; track item.name) {
+          <li>
+            <a [href]="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} 27º GEMAR Cornelis Verolme - Angra dos Reis - Todos os direitos reservados</p>
+  </div>
+</footer>
