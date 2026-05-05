@@ -1,0 +1,22 @@
+<div class="map-wrapper" [style.height]="height" [style.width]="width">
+  <a [href]="googleMapsUrl" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Abrir localização no Google Maps"
+     class="maps-button">
+    Maps 
+    <svg viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+    </svg>
+  </a>
+  
+  @if (apiLoaded()) {
+    <google-map [height]="height" [width]="width" [center]="center" [zoom]="zoom" [options]="mapOptions">
+      <map-advanced-marker [position]="center"></map-advanced-marker>
+    </google-map>
+  } @else {
+    <div class="map-placeholder" [style.height]="height">
+      <p>Carregando mapa...</p>
+    </div>
+  }
+</div>

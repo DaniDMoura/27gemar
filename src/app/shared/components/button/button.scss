@@ -1,0 +1,77 @@
+$primary: #05998c; // New professional Teal
+$black: #000000;
+
+.cta-button {
+  display: inline-block;
+  font-weight: 600; // Unified weight to fix the 1-2px width jump bug
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  width: fit-content;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  border: 1px solid transparent; // Base border to keep dimensions consistent
+
+  &.glass {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff !important;
+    backdrop-filter: blur(16px) saturate(180%); // Enhanced "Liquid Glass" effect
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    color: $black !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.2);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.outline {
+    background: transparent;
+    color: $primary !important;
+    border: 1px solid $primary;
+
+    &:hover {
+      background: rgba(5, 153, 140, 0.08);
+    }
+  }
+
+
+  &.solid-white {
+    background-color: #ffffff;
+    color: #000000 !important;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+
+  &.btn-sm {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  &.mobile-full {
+    @media (max-width: 767px) {
+      display: block;
+      width: 100%;
+    }
+  }
+}

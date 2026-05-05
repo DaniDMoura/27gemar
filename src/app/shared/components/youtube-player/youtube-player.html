@@ -1,0 +1,19 @@
+@if (isValid) {
+  <div class="video-wrapper">
+    <iframe
+      [src]="safeUrl"
+      [title]="title"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+} @else {
+  <div class="fallback-container">
+    <div class="fallback-content">
+      <span class="material-icons">videocam_off</span>
+      <p>Vídeo não disponível ou URL inválida.</p>
+    </div>
+  </div>
+}
