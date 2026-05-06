@@ -29,18 +29,18 @@ export class MapComponent implements OnInit {
 
   /**
    * Map options optimized for a clean, professional look.
-   * Interaction is limited to scroll-zoom for better UX in long pages.
+   * Interaction is disabled (static view) to improve performance and prevent scroll hijacking.
    */
   readonly mapOptions: google.maps.MapOptions = {
     mapId: MAP_CONSTANTS.MAP_ID, 
-    disableDefaultUI: false,
+    disableDefaultUI: true,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,
     zoomControl: false,
-    gestureHandling: 'greedy',
-    draggable: true,
-    scrollwheel: true
+    gestureHandling: 'none',
+    draggable: false,
+    scrollwheel: false
   };
 
   /**
