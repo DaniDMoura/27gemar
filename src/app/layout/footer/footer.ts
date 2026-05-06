@@ -23,7 +23,7 @@ export class Footer implements OnInit {
 
   social = [
     { name: 'Instagram', url: 'https://www.instagram.com/27gemar/' },
-    { name: 'Email', url: 'mailto:gemarcornelisverolme@gmail.com' },
+    { name: 'Email: gemarcornelisverolme@gmail.com', url: 'mailto:gemarcornelisverolme@gmail.com' },
     { name: 'Telefone: (24) 97401-0894', url: 'tel:24974010894' },
   ];
 
