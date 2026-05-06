@@ -43,45 +43,49 @@ $primary: #4dbfb0;
       flex-direction: column;
       justify-content: center;
       min-height: 100vh;
+      max-width: 1200px;
 
       @media (min-width: 1024px) {
-        width: 100%;
         padding-left: clamp(64px, 12vw, 180px);
       }
     }
   }
 
-  h1 {
-    font-weight: 900;
-    font-size: clamp(40px, 6vw, 76px);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 2rem;
-    max-width: 900px;
-
-    span {
-      white-space: nowrap;
-    }
+  .hero-subtitle {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
   }
 
-  p {
-    font-weight: 400;
+  .hero-title {
+    font-weight: 600; // Reduced from 800
+    font-size: clamp(36px, 6vw, 70px); // Reduced from 48px-96px
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-description {
+    font-weight: 300;
     font-size: clamp(16px, 1.2vw, 20px);
-    max-width: 580px;
+    max-width: 700px;
     opacity: 0.9;
     margin-bottom: 3.5rem;
     line-height: 1.6;
   }
 
   // Animations
-  .animate-1, .animate-2, .animate-3 {
+  .animate-1, .animate-2, .animate-3, .animate-4 {
     opacity: 0;
     animation: fadeSlideLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
 
-  .animate-1 { animation-delay: 0.2s; }
-  .animate-2 { animation-delay: 0.4s; }
-  .animate-3 { animation-delay: 0.6s; }
+  .animate-1 { animation-delay: 0.1s; }
+  .animate-2 { animation-delay: 0.25s; }
+  .animate-3 { animation-delay: 0.4s; }
+  .animate-4 { animation-delay: 0.55s; }
 }
 
 @keyframes fadeSlideLeft {

@@ -3,7 +3,7 @@ $black: #000000;
 
 .cta-button {
   display: inline-block;
-  font-weight: 600; // Unified weight to fix the 1-2px width jump bug
+  font-weight: 400; // Reduced from 500
   font-size: 15px;
   text-decoration: none;
   border-radius: 999px;

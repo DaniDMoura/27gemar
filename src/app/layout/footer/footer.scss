@@ -3,7 +3,7 @@
   color: #000000;
   padding: 80px 20px 40px;
   border-top: 1px solid #e0e0e0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 
   &-container {
     max-width: 1200px;
@@ -28,7 +28,7 @@
 
     .column-title {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600; // Reduced from 700
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 12px;
