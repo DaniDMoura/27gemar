@@ -32,7 +32,7 @@ export class YoutubePlayer implements OnInit, OnChanges {
     const videoId = this.extractVideoId(this.videoUrl);
     
     if (videoId) {
-      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
       this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
       this.isValid = true;
     } else {
