@@ -3,8 +3,8 @@
  */
 export const MAP_CONSTANTS = {
   DEFAULT_CENTER: {
-    lat: -23.00008,
-    lng: -44.23342
+    lat: -23.0006234,
+    lng: -44.232439
   },
   DEFAULT_ZOOM: 17,
   MAP_ID: 'GoogleMapsDefault'

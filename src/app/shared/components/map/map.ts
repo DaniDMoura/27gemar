@@ -54,7 +54,7 @@ export class MapComponent implements OnInit {
    * Generates a direct Google Maps link for the external 'Maps' button.
    */
   get googleMapsUrl(): string {
-    return `https://www.google.com/maps/search/?api=1&query=${this.latitude},${this.longitude}`;
+    return `https://www.google.com/maps/place/Grupo+Escoteiro+27+GEMAR/@${this.latitude},${this.longitude},17z/data=!4m6!3m5!1s0x9c45b40308191f:0x46e41ed0ce9a2d98!8m2!3d${this.latitude}!4d${this.longitude}!16s%2Fg%2F11kp_bghkd`;
   }
 
   ngOnInit(): void {
