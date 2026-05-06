@@ -23,11 +23,11 @@ export class Footer implements OnInit {
 
   social = [
     { name: 'Instagram', url: 'https://www.instagram.com/27gemar/' },
-    { name: 'Email', url: 'mailto:contato@27gemar.org.br' },
-    { name: 'Telefone: (24) 99999-9999', url: 'tel:24999999999' },
+    { name: 'Email', url: 'mailto:gemarcornelisverolme@gmail.com' },
+    { name: 'Telefone: (24) 97401-0894', url: 'tel:24974010894' },
   ];
 
   ngOnInit(): void {
-    // Logic if needed
+
   }
 }
