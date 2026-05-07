@@ -19,6 +19,8 @@ export class Footer implements OnInit {
     { name: 'Escoteiros RJ', url: 'https://www.escoteirosrj.org.br/' },
     { name: 'UEB', url: 'https://www.escoteiros.org.br/' },
     { name: 'WOSM', url: 'https://www.scout.org/' },
+    { name: 'Paxtu', url: 'https://paxtu100.escoteiros.org.br' },
+    { name: 'Loja Escoteira', url: 'https://loja.escoteiros.org.br//' }
   ];
 
   social = [
