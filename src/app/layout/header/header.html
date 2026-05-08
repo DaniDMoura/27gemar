@@ -1,26 +1,47 @@
-<header [class.scrolled]="isScrolled" [class.menu-open]="menuOpen" [class.opaque]="isOpaque" [class.hovered]="isHovered">
+<header
+  [class.scrolled]="isScrolled"
+  [class.menu-open]="menuOpen"
+  [class.opaque]="isOpaque"
+  [class.hovered]="isHovered"
+>
   <div class="header-container">
     <div class="header-left">
       <a routerLink="/" (click)="closeMenu()" aria-label="Ir para a Página Inicial">
-        <img src="/assets/logo.webp" alt="Logotipo do 27º Grupo Escoteiro do Mar" class="logo" fetchpriority="high">
+        <img
+          src="/assets/logo.webp"
+          alt="Logotipo do 27º Grupo Escoteiro do Mar"
+          class="logo"
+          fetchpriority="high"
+        />
       </a>
-      
+    </div>
+    <div class="header-center">
       <nav class="header-nav desktop-only" aria-label="Navegação Principal">
         <ul class="nav-list">
           @for (item of navItems; track item.label) {
             @if (!item.isCTA) {
-              <li class="nav-item" 
-                  (mouseenter)="isHovered = !!item.children"
-                  (mouseleave)="isHovered = false">
-                
+              <li
+                class="nav-item"
+                (mouseenter)="isHovered = !!item.children"
+                (mouseleave)="isHovered = false"
+              >
                 @if (item.route) {
-                  <a [routerLink]="item.route" 
-                     class="item-label-root" 
-                     routerLinkActive="active"
-                     (mouseenter)="isHovered = false">{{ item.label }}</a>
+                  <a
+                    [routerLink]="item.route"
+                    class="item-label-root"
+                    routerLinkActive="active"
+                  >
+                    {{ item.label }}
+                    @if (item.children) {
+                      <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    }
+                  </a>
                 } @else {
                   <span class="item-label">
                     {{ item.label }}
+                    @if (item.children) {
+                      <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    }
                   </span>
                 }
 
@@ -34,7 +55,9 @@
                             <ul>
                               @for (subChild of child.children; track subChild.label) {
                                 <li>
-                                  <a [routerLink]="subChild.route" (click)="isHovered = false">{{ subChild.label }}</a>
+                                  <a [routerLink]="subChild.route" (click)="isHovered = false">{{
+                                    subChild.label
+                                  }}</a>
                                 </li>
                               }
                             </ul>
@@ -43,7 +66,6 @@
                           <div class="mega-column-link">
                             <a [routerLink]="child.route" (click)="isHovered = false">
                               {{ child.label }}
-                              <span class="arrow">&rarr;</span>
                             </a>
                           </div>
                         }
@@ -61,26 +83,56 @@
     <div class="header-right desktop-only">
       @for (item of navItems; track item.label) {
         @if (item.isCTA && item.route) {
-          <app-button [link]="item.route" [text]="item.label" size="sm" [theme]="(isScrolled || isOpaque || isHovered) ? 'ghost' : 'glass'"></app-button>
+          <app-button
+            [link]="item.route"
+            [text]="item.label"
+            size="sm"
+            [theme]="isScrolled || isOpaque || isHovered ? 'ghost' : 'glass'"
+          ></app-button>
         }
       }
     </div>
 
-    <button class="hamburger mobile-only" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menu">
+    <button
+      class="hamburger mobile-only"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Menu"
+    >
       @if (!menuOpen) {
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       } @else {
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       }
     </button>
   </div>
+
+  <div class="header-overlay" [class.visible]="isHovered" (mouseenter)="isHovered = false"></div>
 
   <!-- Mobile Navigation -->
   <div class="mobile-nav" [class.open]="menuOpen">
@@ -95,7 +147,18 @@
                 <button class="mobile-submenu-toggle" (click)="toggleSubmenu(item.label, $event)">
                   {{ item.label }}
                   <span class="chevron" [class.rotated]="isSubmenuOpen(item.label)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                   </span>
                 </button>
                 <div class="mobile-submenu" [class.open]="isSubmenuOpen(item.label)">
@@ -105,12 +168,18 @@
                         <h4>{{ child.label }}</h4>
                         <ul>
                           @for (subChild of child.children; track subChild.label) {
-                            <li><a [routerLink]="subChild.route" (click)="closeMenu()">{{ subChild.label }}</a></li>
+                            <li>
+                              <a [routerLink]="subChild.route" (click)="closeMenu()">{{
+                                subChild.label
+                              }}</a>
+                            </li>
                           }
                         </ul>
                       </div>
                     } @else if (child.route) {
-                      <a class="mobile-sublink" [routerLink]="child.route" (click)="closeMenu()">{{ child.label }}</a>
+                      <a class="mobile-sublink" [routerLink]="child.route" (click)="closeMenu()">{{
+                        child.label
+                      }}</a>
                     }
                   }
                 </div>
@@ -122,7 +191,13 @@
       <div class="mobile-nav-actions">
         @for (item of navItems; track item.label) {
           @if (item.isCTA && item.route) {
-            <app-button [link]="item.route" [text]="item.label" theme="ghost" [mobileFullWidth]="true" (click)="closeMenu()"></app-button>
+            <app-button
+              [link]="item.route"
+              [text]="item.label"
+              theme="ghost"
+              [mobileFullWidth]="true"
+              (click)="closeMenu()"
+            ></app-button>
           }
         }
       </div>

@@ -17,10 +17,9 @@ export class Header {
   isScrolled = false;
   menuOpen = false;
   isOpaque = false;
-  isHovered = false; // Track if a dropdown is hovered
+  isHovered = false; 
   navItems = NAVIGATION_DATA;
   
-  // Track open submenus in mobile
   openSubmenus: { [key: string]: boolean } = {};
 
   constructor() {

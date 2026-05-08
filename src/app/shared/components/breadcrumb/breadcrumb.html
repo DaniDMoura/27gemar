@@ -4,10 +4,14 @@
       <li class="breadcrumb-item">
         <a routerLink="/">Página Principal</a>
       </li>
-      @if (currentPath) {
+      @for (item of breadcrumbs; track item.label; let isLast = $last) {
         <li class="breadcrumb-item separator" aria-hidden="true">/</li>
-        <li class="breadcrumb-item" aria-current="page">
-          <span class="current">{{ currentPath }}</span>
+        <li class="breadcrumb-item" [attr.aria-current]="isLast ? 'page' : null">
+          @if (!isLast && item.route) {
+            <a [routerLink]="item.route">{{ item.label }}</a>
+          } @else {
+            <span [class.current]="isLast">{{ item.label }}</span>
+          }
         </li>
       }
     </ol>
