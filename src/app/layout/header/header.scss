@@ -116,8 +116,7 @@ header {
         border-bottom: 1px solid $border-color;
         padding: 2rem 0;
         color: $black;
-        transform: translateY(10px);
-        transition: opacity $transition-out, transform $transition-out, visibility $transition-out;
+        transition: opacity $transition-out, visibility $transition-out;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         
         .mega-menu-content {
@@ -189,8 +188,7 @@ header {
         .mega-menu {
           opacity: 1;
           visibility: visible;
-          transform: translateY(0);
-          transition: opacity $transition-in, transform $transition-in, visibility $transition-in;
+          transition: opacity $transition-in, visibility $transition-in;
         }
 
         .chevron {
