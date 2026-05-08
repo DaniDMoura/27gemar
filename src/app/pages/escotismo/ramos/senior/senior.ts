@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb'
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Ramo Sênior</h1>
+        <h1 class="animate-fade-in">Ramo Sênior</h1>
       </section>
 
       <app-breadcrumb currentPath="Sênior"></app-breadcrumb>
 
       <section class="content-container">
-        <div class="intro">
+        <div class="intro animate-fade-up">
           <h2>Sênior (15 a 17 anos)</h2>
           <p>
             O Ramo Sênior é voltado para jovens de 15 a 17 anos e marca uma fase de maior maturidade,

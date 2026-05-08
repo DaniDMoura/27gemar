@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Chefia</h1>
+        <h1 class="animate-fade-in">Chefia</h1>
       </section>
 
       <app-breadcrumb currentPath="Chefia"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="chefia-intro">
+        <section class="chefia-intro animate-fade-up">
           <h2>Nossos Chefes</h2>
           <p>
             A chefia do 27º GEMAR é composta por voluntários dedicados que passam por constante formação para aplicar o Método Escoteiro com segurança e eficiência.

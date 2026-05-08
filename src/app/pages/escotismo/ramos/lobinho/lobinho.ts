@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb'
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Ramo Lobinho</h1>
+        <h1 class="animate-fade-in">Ramo Lobinho</h1>
       </section>
 
       <app-breadcrumb currentPath="Lobinho"></app-breadcrumb>
 
       <section class="content-container">
-        <div class="intro">
+        <div class="intro animate-fade-up">
           <h2>Lobinho (7 a 10 anos)</h2>
           <p>
             O Ramo Lobinho é voltado para crianças de 7 a 10 anos e utiliza o universo do “Livro da

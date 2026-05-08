@@ -16,7 +16,7 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
       <app-breadcrumb></app-breadcrumb>
 
       <article class="content-container">
-        <section class="historia">
+        <section class="historia animate-fade-up" style="--i: 0">
           <h2>A História do Escotismo Mundial</h2>
           <p>
             Em agosto de 1907, Baden-Powell realizou, na Ilha de Brownsea, no Canal da Mancha, o
@@ -69,7 +69,7 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
           </p>
         </section>
 
-        <section class="historia">
+        <section class="historia animate-fade-up" style="--i: 2">
           <h2>A História do Escotismo do Mar</h2>
           <p>
             Baden-Powell costumava a sair para aventuras marítimas com seus irmãos, suas férias de nosso

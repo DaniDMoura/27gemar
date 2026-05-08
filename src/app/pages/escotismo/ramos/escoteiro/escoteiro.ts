@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb'
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Ramo Escoteiro</h1>
+        <h1 class="animate-fade-in">Ramo Escoteiro</h1>
       </section>
 
       <app-breadcrumb currentPath="Escoteiro"></app-breadcrumb>
 
       <section class="content-container">
-        <div class="intro">
+        <div class="intro animate-fade-up">
           <h2>Escoteiro (11 a 14 anos)</h2>
           <p>
             O Ramo Escoteiro é destinado a jovens de 11 a 14 anos e tem como foco o desenvolvimento da

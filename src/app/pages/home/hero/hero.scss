@@ -78,26 +78,4 @@ $primary: #4dbfb0;
     line-height: 1.6;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
-
-  // Animations
-  .animate-1, .animate-2, .animate-3, .animate-4 {
-    opacity: 0;
-    animation: fadeSlideLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  }
-
-  .animate-1 { animation-delay: 0.1s; }
-  .animate-2 { animation-delay: 0.25s; }
-  .animate-3 { animation-delay: 0.4s; }
-  .animate-4 { animation-delay: 0.55s; }
-}
-
-@keyframes fadeSlideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }

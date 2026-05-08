@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Diretoria</h1>
+        <h1 class="animate-fade-in">Diretoria</h1>
       </section>
 
       <app-breadcrumb currentPath="Diretoria"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="diretoria-intro">
+        <section class="diretoria-intro animate-fade-up">
           <h2>Gestão Institucional</h2>
           <p>
             A diretoria é responsável pela administração do grupo, garantindo os recursos necessários para que as atividades ocorram e mantendo a regularidade institucional junto à UEB.

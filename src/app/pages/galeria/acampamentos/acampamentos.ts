@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Acampamentos</h1>
+        <h1 class="animate-fade-in">Acampamentos</h1>
       </section>
 
       <app-breadcrumb currentPath="Acampamentos"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="galeria-intro">
+        <section class="galeria-intro animate-fade-up">
           <h2>Nossos Acampamentos</h2>
           <p>Veja os registros das nossas aventuras ao ar livre.</p>
           <div class="gallery-placeholder">

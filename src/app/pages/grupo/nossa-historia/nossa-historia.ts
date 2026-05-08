@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Nossa História</h1>
+        <h1 class="animate-fade-in">Nossa História</h1>
       </section>
 
       <app-breadcrumb currentPath="Nossa História"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="historia-grupo">
+        <section class="historia-grupo animate-fade-up">
           <h2>27º GEMAR Cornelis Verolme</h2>
           <p>
             Fundado com o objetivo de levar os valores do escotismo para a comunidade de Angra dos Reis, o 27º Grupo Escoteiro do Mar Cornelis Verolme tem uma longa trajetória de dedicação à formação de jovens.

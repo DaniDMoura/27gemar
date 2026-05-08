@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb'
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Ramo Pioneiro</h1>
+        <h1 class="animate-fade-in">Ramo Pioneiro</h1>
       </section>
 
       <app-breadcrumb currentPath="Pioneiro"></app-breadcrumb>
 
       <section class="content-container">
-        <div class="intro">
+        <div class="intro animate-fade-up">
           <h2>Pioneiro (18 a 21 anos)</h2>
           <p>
             O Ramo Pioneiro é destinado a jovens de 18 até 21 anos e representa a transição para a

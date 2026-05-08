@@ -11,13 +11,13 @@ import { MapComponent } from '../../../shared/components/map/map';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Nossa Sede</h1>
+        <h1 class="animate-fade-in">Nossa Sede</h1>
       </section>
 
       <app-breadcrumb currentPath="Sede"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="sede-info">
+        <section class="sede-info animate-fade-up">
           <h2>Onde nos encontramos</h2>
           <p>
             Nossa sede está localizada em Jacuecanga, Angra dos Reis. Um espaço dedicado ao aprendizado e à convivência dos nossos jovens.

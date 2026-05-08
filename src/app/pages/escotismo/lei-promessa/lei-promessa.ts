@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Lei e Promessa</h1>
+        <h1 class="animate-fade-in">Lei e Promessa</h1>
       </section>
 
       <app-breadcrumb currentPath="Lei e Promessa"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="promessa">
+        <section class="promessa animate-fade-up" style="--i: 0">
           <h2>A Promessa Escoteira</h2>
           <p>
             No momento da sua Promessa, o escoteiro assume, livremente, o compromisso de viver de acordo com os princípios do Movimento Escoteiro.

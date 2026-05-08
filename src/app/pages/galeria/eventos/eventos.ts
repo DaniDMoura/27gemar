@@ -10,13 +10,13 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
     <main class="page-layout">
       <section class="page-hero">
         <div class="overlay"></div>
-        <h1>Eventos</h1>
+        <h1 class="animate-fade-in">Eventos</h1>
       </section>
 
       <app-breadcrumb currentPath="Eventos"></app-breadcrumb>
 
       <article class="content-container">
-        <section class="galeria-intro">
+        <section class="galeria-intro animate-fade-up">
           <h2>Nossos Eventos</h2>
           <p>Confira as fotos dos eventos realizados pelo 27º GEMAR.</p>
           <div class="gallery-placeholder">
