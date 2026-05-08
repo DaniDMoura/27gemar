@@ -11,11 +11,26 @@
     padding: 0 2rem;
   }
 
-  .trail {
-    font-size: 14px;
+  .breadcrumb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome/Safari
+    }
+  }
+
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
     color: rgba(255, 255, 255, 0.8);
 
     a {
@@ -23,13 +38,17 @@
       text-decoration: none;
       transition: color 0.2s ease;
 
-      &:hover {
+      &:hover, &:focus-visible {
         color: #ffffff;
+        text-decoration: underline;
+        outline: none;
       }
     }
 
-    .separator {
+    &.separator {
+      margin: 0 8px;
       color: rgba(255, 255, 255, 0.4);
+      user-select: none;
     }
 
     .current {
@@ -39,17 +58,13 @@
   }
 
   @media (max-width: 768px) {
-    padding: 24px 0;
+    padding: 16px 0;
 
     .container {
       padding: 0 1.5rem;
     }
 
-    .page-title {
-      font-size: 20px;
-    }
-
-    .trail {
+    .breadcrumb-list {
       font-size: 13px;
     }
   }

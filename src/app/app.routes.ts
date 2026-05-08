@@ -9,7 +9,7 @@ export const routes: Routes = [
   // O Escotismo
   { 
     path: 'escotismo',
-    data: { breadcrumb: 'Escotismo' },
+    data: { breadcrumb: 'O Escotismo' },
     children: [
       {
         path: '',

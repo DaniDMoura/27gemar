@@ -212,23 +212,150 @@ header {
     color: inherit;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
     z-index: 1001;
+    transition: transform 0.2s ease;
 
-    .bar {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background-color: currentColor;
-      transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
   .mobile-only { display: none; }
+
+  // Mobile Navigation
+  .mobile-nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background-color: $white;
+    color: $black;
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-nav-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-nav-item {
+      > a, .mobile-submenu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: none;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: $black;
+        text-decoration: none;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .chevron {
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.rotated {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .mobile-submenu {
+      display: none;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1rem;
+      
+      &.open {
+        display: block;
+      }
+
+      .mobile-subcolumn {
+        h4 {
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          color: #888;
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+          letter-spacing: 1px;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li a {
+            display: block;
+            padding: 0.5rem 0;
+            color: #444;
+            text-decoration: none;
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .mobile-sublink {
+        display: block;
+        padding: 0.75rem 0;
+        color: $primary;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+
+    .mobile-nav-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      app-button {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
   @media (max-width: 1023px) {
     .desktop-only { display: none; }
     .mobile-only { display: flex; }
+    
+    // When menu is open, make sure header background is white so icons are visible
+    &.menu-open {
+      background-color: $white;
+      color: $black;
+    }
   }
 }

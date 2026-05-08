@@ -1,15 +1,15 @@
-<nav class="breadcrumb-banner">
+<nav class="breadcrumb-banner" aria-label="Breadcrumb">
   <div class="container">
-    <div class="trail">
-      <a routerLink="/">Página Principal</a>
-      @for (crumb of breadcrumbs; track crumb.url; let last = $last) {
-        <span class="separator">/</span>
-        @if (last) {
-          <span class="current">{{ crumb.label }}</span>
-        } @else {
-          <a [routerLink]="crumb.url">{{ crumb.label }}</a>
-        }
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Página Principal</a>
+      </li>
+      @if (currentPath) {
+        <li class="breadcrumb-item separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-item" aria-current="page">
+          <span class="current">{{ currentPath }}</span>
+        </li>
       }
-    </div>
+    </ol>
   </div>
 </nav>

@@ -67,9 +67,65 @@
     </div>
 
     <button class="hamburger mobile-only" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      @if (!menuOpen) {
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      } @else {
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      }
     </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" [class.open]="menuOpen">
+    <div class="mobile-nav-content">
+      <ul class="mobile-nav-list">
+        @for (item of navItems; track item.label) {
+          @if (!item.isCTA) {
+            <li class="mobile-nav-item">
+              @if (item.route) {
+                <a [routerLink]="item.route" (click)="closeMenu()">{{ item.label }}</a>
+              } @else {
+                <button class="mobile-submenu-toggle" (click)="toggleSubmenu(item.label, $event)">
+                  {{ item.label }}
+                  <span class="chevron" [class.rotated]="isSubmenuOpen(item.label)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </button>
+                <div class="mobile-submenu" [class.open]="isSubmenuOpen(item.label)">
+                  @for (child of item.children; track child.label) {
+                    @if (child.children) {
+                      <div class="mobile-subcolumn">
+                        <h4>{{ child.label }}</h4>
+                        <ul>
+                          @for (subChild of child.children; track subChild.label) {
+                            <li><a [routerLink]="subChild.route" (click)="closeMenu()">{{ subChild.label }}</a></li>
+                          }
+                        </ul>
+                      </div>
+                    } @else if (child.route) {
+                      <a class="mobile-sublink" [routerLink]="child.route" (click)="closeMenu()">{{ child.label }}</a>
+                    }
+                  }
+                </div>
+              }
+            </li>
+          }
+        }
+      </ul>
+      <div class="mobile-nav-actions">
+        @for (item of navItems; track item.label) {
+          @if (item.isCTA && item.route) {
+            <app-button [link]="item.route" [text]="item.label" theme="ghost" [mobileFullWidth]="true" (click)="closeMenu()"></app-button>
+          }
+        }
+      </div>
+    </div>
   </div>
 </header>

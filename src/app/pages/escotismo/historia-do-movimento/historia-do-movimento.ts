@@ -13,7 +13,7 @@ import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
         <h1>História do Movimento</h1>
       </section>
 
-      <app-breadcrumb></app-breadcrumb>
+      <app-breadcrumb currentPath="História do Movimento"></app-breadcrumb>
 
       <article class="content-container">
         <section class="historia animate-fade-up" style="--i: 0">
