@@ -2,8 +2,14 @@
   <div class="container">
     <div class="trail">
       <a routerLink="/">Página Principal</a>
-      <span class="separator">/</span>
-      <span class="current">{{ currentPath }}</span>
+      @for (crumb of breadcrumbs; track crumb.url; let last = $last) {
+        <span class="separator">/</span>
+        @if (last) {
+          <span class="current">{{ crumb.label }}</span>
+        } @else {
+          <a [routerLink]="crumb.url">{{ crumb.label }}</a>
+        }
+      }
     </div>
   </div>
 </nav>

@@ -1,5 +1,17 @@
 $primary: #05998c;
 $black: #000000;
+$white: #ffffff;
+$gray-light: #f4f4f4;
+$border-color: rgba(0, 0, 0, 0.06);
+
+// Synchronized transition for smooth, jank-free animations
+$shared-transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    color 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
 header {
   position: fixed;
@@ -7,98 +19,197 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.92);
   background-color: transparent;
-  color: white;
+  transition: $shared-transition;
 
-  &.scrolled, &.opaque {
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    color: $black;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  &.scrolled, &.opaque, &.hovered {
+    background-color: $white;
+    color: rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid $border-color;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 
-    nav a {
-      color: rgba(0, 0, 0, 0.7);
+    .logo { filter: none; }
 
-      &:hover {
-        color: $primary;
+    .nav-list .nav-item {
+      .item-label, .item-label-root {
+        color: rgba(0, 0, 0, 0.75);
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          color: rgba(0, 0, 0, 0.75);
+        }
       }
     }
-  }
-
-  &.menu-open {
-    background-color: #ffffff;
-    color: $black;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
-    box-shadow: none;
-  }
-
-  &.opaque {
-    background-color: #ffffff;
   }
 
   .header-container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 88px;
+    height: 72px;
   }
 
-  .header-left {
-    display: flex;
-    align-items: center;
+  .header-left { 
+    display: flex; 
+    align-items: center; 
+    height: 100%;
   }
-
-  .logo {
-    height: 52px;
-    display: block;
-    margin-right: 4rem;
-  }
-
-  .header-nav a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 400; // Reduced from 500
-    font-size: 15px;
+  
+  .logo { 
+    height: 36px; 
+    display: block; 
     margin-right: 2.5rem;
-    transition: all 0.2s ease;
+  }
 
-    &:hover {
-      color: rgba(255, 255, 255, 0.7);
+  // Desktop Navigation
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .item-label, .item-label-root {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 8px 16px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: $shared-transition;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+          color: rgba(255, 255, 255, 0.92);
+        }
+
+        &.active {
+          color: $primary !important;
+        }
+      }
+
+      // The Mega Menu Container
+      .mega-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: $white;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding: 3rem 0;
+        color: $black;
+        transition: $shared-transition;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        
+        .mega-menu-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 3rem;
+        }
+
+        .mega-column {
+          h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1.25rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              margin-bottom: 0.85rem;
+              
+              a {
+                text-decoration: none;
+                color: $black;
+                font-size: 15px;
+                font-weight: 400;
+                display: inline-block;
+                transition: $shared-transition;
+                
+                &:hover {
+                  color: $primary;
+                }
+              }
+            }
+          }
+        }
+
+        .mega-column-link {
+          a {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-decoration: none;
+            color: $black;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid $border-color;
+            transition: $shared-transition;
+
+            &:hover {
+              background-color: rgba(5, 153, 140, 0.06);
+              border-color: $primary;
+              color: $primary;
+            }
+
+            .arrow {
+              font-size: 18px;
+              margin-top: 4px;
+              color: $primary;
+            }
+          }
+        }
+      }
+
+      // Show mega menu on hover with animation
+      &:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
+  // Right Side
   .header-right {
     display: flex;
     align-items: center;
+    gap: 1rem;
   }
 
-  .login-link {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 400; // Reduced from 500
-    font-size: 15px;
-    margin-right: 2.5rem;
-    transition: all 0.2s ease;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-
-
-  // Hamburger Button
+  // Hamburger & Mobile
   .hamburger {
     background: none;
     border: none;
-    color: inherit; // Force inheritance to pick up white or black from header
+    color: inherit;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -115,71 +226,9 @@ header {
     }
   }
 
-  &.menu-open {
-    .hamburger {
-      .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-      .bar:nth-child(2) {
-        opacity: 0;
-      }
-      .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
-    }
-  }
-
-  // Mobile Menu
-  .mobile-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    &.open {
-      max-height: 500px;
-    }
-
-    nav {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-
-      a {
-        color: $black;
-        margin: 1rem 0;
-        font-size: 1.1rem;
-      }
-    }
-
-  }
-
-  // Utility classes
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: flex;
-  }
-
-  @media (min-width: 768px) {
-    .desktop-only {
-      display: flex;
-      align-items: center;
-    }
-
-    .mobile-only {
-      display: none;
-    }
-
-    .mobile-menu {
-      display: none;
-    }
+  .mobile-only { display: none; }
+  @media (max-width: 1023px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; }
   }
 }

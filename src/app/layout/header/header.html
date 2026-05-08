@@ -1,38 +1,75 @@
-<header [class.scrolled]="isScrolled" [class.menu-open]="menuOpen" [class.opaque]="isOpaque">
+<header [class.scrolled]="isScrolled" [class.menu-open]="menuOpen" [class.opaque]="isOpaque" [class.hovered]="isHovered">
   <div class="header-container">
     <div class="header-left">
       <a routerLink="/" (click)="closeMenu()" aria-label="Ir para a Página Inicial">
         <img src="/assets/logo.webp" alt="Logotipo do 27º Grupo Escoteiro do Mar" class="logo" fetchpriority="high">
       </a>
       
-      <nav class="header-nav desktop-only">
-        <a routerLink="/escotismo">O Escotismo</a>
-        <a routerLink="/nossa-historia">Nossa História</a>
-        <a routerLink="/atividades">Atividades</a>
-        <a routerLink="/voluntariado">Voluntariado</a>
-        <a routerLink="/contato">Contato</a>
+      <nav class="header-nav desktop-only" aria-label="Navegação Principal">
+        <ul class="nav-list">
+          @for (item of navItems; track item.label) {
+            @if (!item.isCTA) {
+              <li class="nav-item" 
+                  (mouseenter)="isHovered = !!item.children"
+                  (mouseleave)="isHovered = false">
+                
+                @if (item.route) {
+                  <a [routerLink]="item.route" 
+                     class="item-label-root" 
+                     routerLinkActive="active"
+                     (mouseenter)="isHovered = false">{{ item.label }}</a>
+                } @else {
+                  <span class="item-label">
+                    {{ item.label }}
+                  </span>
+                }
+
+                @if (item.children) {
+                  <div class="mega-menu">
+                    <div class="mega-menu-content">
+                      @for (child of item.children; track child.label) {
+                        @if (child.children) {
+                          <div class="mega-column">
+                            <h4>{{ child.label }}</h4>
+                            <ul>
+                              @for (subChild of child.children; track subChild.label) {
+                                <li>
+                                  <a [routerLink]="subChild.route" (click)="isHovered = false">{{ subChild.label }}</a>
+                                </li>
+                              }
+                            </ul>
+                          </div>
+                        } @else if (child.route) {
+                          <div class="mega-column-link">
+                            <a [routerLink]="child.route" (click)="isHovered = false">
+                              {{ child.label }}
+                              <span class="arrow">&rarr;</span>
+                            </a>
+                          </div>
+                        }
+                      }
+                    </div>
+                  </div>
+                }
+              </li>
+            }
+          }
+        </ul>
       </nav>
     </div>
 
     <div class="header-right desktop-only">
-      <app-button link="/inscricao" text="Seja Escoteiro" size="sm" [theme]="(isScrolled || isOpaque) ? 'ghost' : 'glass'"></app-button>
+      @for (item of navItems; track item.label) {
+        @if (item.isCTA && item.route) {
+          <app-button [link]="item.route" [text]="item.label" size="sm" [theme]="(isScrolled || isOpaque || isHovered) ? 'ghost' : 'glass'"></app-button>
+        }
+      }
     </div>
 
-    <button class="hamburger mobile-only" (click)="toggleMenu()" aria-label="Menu">
+    <button class="hamburger mobile-only" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
-  </div>
-
-  <div class="mobile-menu" [class.open]="menuOpen">
-    <nav>
-      <a routerLink="/escotismo" (click)="closeMenu()">O Escotismo</a>
-      <a routerLink="/nossa-historia" (click)="closeMenu()">Nossa História</a>
-      <a routerLink="/atividades" (click)="closeMenu()">Atividades</a>
-      <a routerLink="/voluntariado" (click)="closeMenu()">Voluntariado</a>
-      <a routerLink="/contato" (click)="closeMenu()">Contato</a>
-      <app-button link="/inscricao" text="Seja Escoteiro" [mobileFullWidth]="true" theme="ghost" (click)="closeMenu()"></app-button>
-    </nav>
   </div>
 </header>
