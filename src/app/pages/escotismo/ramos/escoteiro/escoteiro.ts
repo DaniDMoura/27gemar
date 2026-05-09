@@ -1,42 +1,32 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb';
+import { HeroMosaic, MosaicImage } from '../../../../shared/components/hero-mosaic/hero-mosaic';
+import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
 
 @Component({
   selector: 'app-ramo-escoteiro',
   standalone: true,
-  imports: [CommonModule, Breadcrumb],
-  template: `
-    <main class="page-layout">
-      <section class="page-hero">
-        <div class="overlay"></div>
-        <h1 class="animate-fade-in">Ramo Escoteiro</h1>
-      </section>
-
-      <app-breadcrumb currentPath="Escoteiro"></app-breadcrumb>
-
-      <section class="content-container">
-        <div class="intro animate-fade-up">
-          <h2>Escoteiro (11 a 14 anos)</h2>
-          <p>
-            O Ramo Escoteiro é destinado a jovens de 11 a 14 anos e tem como foco o desenvolvimento da
-            autonomia, liderança e espírito de equipe. Organizados em patrulhas que formam a tropa, os
-            participantes assumem responsabilidades progressivas, aprendendo na prática a tomar
-            decisões, colaborar e respeitar o coletivo.
-          </p>
-          <p>
-            As atividades incluem acampamentos, excursões e desafios ao ar livre, sempre com orientação, 
-            incentivando o contato com a natureza e o aprendizado contínuo. Com o lema “Sempre Alerta”, 
-            os escoteiros são estimulados a explorar, descobrir e superar limites, fortalecendo a 
-            confiança, o senso de responsabilidade e a capacidade de agir com iniciativa.
-          </p>
-        </div>
-      </section>
-    </main>
-  `,
-  styles: [`
-    @use '../../../../shared/styles/layout';
-    .page-layout { @extend .page-layout; }
-  `]
+  imports: [CommonModule, Breadcrumb, HeroMosaic, CtaBox],
+  templateUrl: './escoteiro.html',
+  styleUrl: './escoteiro.scss',
 })
-export class RamoEscoteiro {}
+export class RamoEscoteiro {
+  mosaicImages: MosaicImage[] = [
+    {
+      src: 'assets/escotismo/ramos/images/escoteiro2.jpg',
+      alt: 'Escoteiro principal',
+      type: 'main',
+    },
+    {
+      src: 'assets/escotismo/ramos/images/escoteiro.jpg',
+      alt: 'Atividade vertical',
+      type: 'side-top',
+    },
+    {
+      src: 'assets/escotismo/ramos/images/escoteiro3.jpg',
+      alt: 'Atividade vertical',
+      type: 'side-bottom',
+    },
+  ];
+}

@@ -1,0 +1,125 @@
+@use 'app/shared/styles/variables' as var;
+
+:host { display: block; }
+
+.lei-promessa-page {
+  padding-top: 72px;
+  background: #fff;
+}
+
+.main-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 5rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .section-group {
+    margin-bottom: 5rem;
+
+    h2 {
+      font-size: 2.2rem;
+      color: #000;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .text-block p, .intro-text {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 2rem;
+      text-align: justify;
+    }
+  }
+
+  .promise-quote-container {
+    margin: 3.5rem 0;
+    padding-left: 2.5rem;
+    border-left: 1px solid #eee;
+
+    .promise-text {
+      font-family: var.$font-title;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-style: italic;
+      line-height: 1.4;
+      color: #000;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  .leis-list {
+    display: grid;
+    gap: 0.5rem;
+
+    .lei-item {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #f5f5f5;
+
+      &:last-child { border-bottom: none; }
+
+      .lei-number {
+        font-family: var.$font-title;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #000;
+        opacity: 0.2;
+        min-width: 40px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin: 0;
+        color: #333;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .sidebar {
+    .video-card {
+      background: #fff;
+      border-radius: var.$radius-md;
+      overflow: hidden;
+      box-shadow: var.$shadow-md;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 100px;
+
+      .video-caption {
+        padding: 1.5rem;
+        h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: #000;
+          font-weight: 600;
+        }
+        p {
+          font-size: 0.95rem;
+          color: #666;
+          margin-bottom: 0;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content { padding: 3rem 1.5rem; }
+  .promise-quote-container { padding-left: 1.5rem; }
+  .lei-item { gap: 1rem; }
+}

@@ -1,278 +1,152 @@
 @use 'app/shared/styles/variables' as var;
-@use '../../shared/styles/layout';
 
 :host {
   display: block;
 }
 
-.intro {
-  .intro-grid {
-    display: flex;
-    align-items: flex-start;
-    gap: 4rem;
-    margin-bottom: 2rem;
-
-    .intro-text {
-      flex: 1.5;
-      
-      .text-section {
-        margin-bottom: 3.5rem;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        h2 {
-          font-size: 1.8rem;
-          color: var.$black;
-          margin-bottom: 1.25rem;
-          font-weight: 600;
-          letter-spacing: -0.5px;
-        }
-
-        p {
-          font-size: 1.15rem;
-          line-height: 1.8;
-          color: #444;
-          margin-bottom: 0;
-          text-align: justify;
-        }
-      }
-    }
-
-    .intro-video {
-      flex: 1;
-      position: sticky;
-      top: 100px;
-      width: 100%;
-
-      .video-card {
-        background: #fff;
-        border-radius: var.$radius-lg;
-        overflow: hidden;
-        box-shadow: var.$shadow-md;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-
-        .video-caption {
-          padding: 1.5rem;
-          background-color: #fcfcfc;
-          
-          h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 600;
-          }
-
-          p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 0;
-            line-height: 1.5;
-            text-align: left;
-          }
-        }
-      }
-    }
-  }
+.escotismo-page {
+  padding-top: 72px;
+  background: #fff;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  
-  h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    color: var.$black;
+.main-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 5rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
   }
 
-  p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-}
+  .text-column {
+    .text-section {
+      margin-bottom: 3.5rem;
 
-.ramos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 5rem;
-
-  .ramo-card {
-    background: #fff;
-    border-radius: var.$radius-lg;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: var.$shadow-md;
-    transition: background-color var.$transition-base, border-color var.$transition-base, box-shadow var.$transition-base;
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-
-    &:hover {
-      box-shadow: var.$shadow-lg;
-      border-color: var.$primary;
-
-      .card-link {
-        color: var.$primary;
+      &:last-child {
+        margin-bottom: 0;
       }
-    }
 
-    &:focus-visible {
-      outline: 2px solid var.$primary;
-      outline-offset: 2px;
-    }
-
-    &:active {
-      opacity: 0.9;
-    }
-
-    .ramo-image {
-      height: 200px;
-      overflow: hidden;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .ramo-content {
-      padding: 1.5rem;
-      text-align: center;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      h3 {
-        font-size: 1.4rem;
+      h2 {
+        font-size: 1.8rem;
         color: var.$black;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
       }
 
       p {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 1rem;
-      }
-
-      .card-link {
-        font-weight: 600;
-        color: #999;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: color var.$transition-fast;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 0;
+        text-align: justify;
       }
     }
   }
-}
 
-.extra-sections {
-  padding-top: 3rem;
-  border-top: 1px solid #eee;
+  .side-column {
+    .video-card {
+      background: #fff;
+      border-radius: var.$radius-md;
+      overflow: hidden;
+      box-shadow: var.$shadow-md;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 100px;
 
-  .extra-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-
-    .extra-card {
-      background: #f8f9fa;
-      padding: 2.5rem;
-      border-radius: var.$radius-lg;
-      text-decoration: none;
-      transition: background-color var.$transition-base, border-color var.$transition-base, box-shadow var.$transition-base;
-      border: 1px solid transparent;
-
-      &:hover {
-        background: #fff;
-        border-color: var.$primary;
-        box-shadow: var.$shadow-md;
-
-        h3 { color: var.$primary; }
-        .card-link { color: var.$primary; }
-      }
-
-      &:focus-visible {
-        outline: 2px solid var.$primary;
-        outline-offset: 2px;
-      }
-
-      &:active {
-        opacity: 0.9;
-      }
-
-      .extra-content {
+      .video-caption {
+        padding: 1.5rem;
+        background-color: #fcfcfc;
+        
         h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-          color: var.$black;
-          transition: color var.$transition-fast;
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: #333;
+          font-weight: 600;
         }
 
         p {
-          color: #555;
-          margin-bottom: 1.5rem;
-          font-size: 1.05rem;
-          line-height: 1.6;
+          font-size: 0.95rem;
+          color: #666;
+          margin-bottom: 0;
+          line-height: 1.5;
         }
+      }
+    }
 
-        .card-link {
-          font-weight: 600;
-          color: var.$primary;
-          display: inline-block;
-          transition: color var.$transition-fast;
+    .links-box {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: var.$radius-md;
+      border: 1px solid #eee;
+      position: sticky;
+      top: 450px; // Below the video card
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        color: var.$black;
+      }
+
+      .side-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .side-link {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 16px;
+          background: #fff;
+          border: 1px solid #eee;
+          border-radius: var.$radius-sm;
+          text-decoration: none;
+          color: #444;
+          font-weight: 500;
+          transition: all var.$transition-fast;
+
+          .arrow {
+            color: var.$primary;
+            transition: transform var.$transition-fast;
+          }
+
+          &:hover {
+            border-color: var.$primary;
+            color: var.$primary;
+            box-shadow: var.$shadow-sm;
+
+            .arrow {
+              transform: translateX(4px);
+            }
+          }
+
+          &:focus-visible {
+            outline: 2px solid var.$primary;
+          }
+
+          &:active {
+            opacity: 0.8;
+          }
         }
       }
     }
   }
 }
 
-@media (max-width: 992px) {
-  .intro {
-    .intro-grid {
-      flex-direction: column;
-      gap: 3rem;
-
-      .intro-text {
-        order: 2;
-        
-        .text-section {
-          margin-bottom: 2.5rem;
-          
-          h2 {
-            font-size: 1.6rem;
-            text-align: center;
-          }
-
-          p {
-            text-align: left;
-          }
-        }
-      }
-
-      .intro-video {
-        order: 1;
-        position: static;
-        max-width: 100%;
-
-        .video-card {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-      }
-    }
-  }
-
-  .extra-sections {
-    .extra-grid {
-      grid-template-columns: 1fr;
-    }
+@media (max-width: 768px) {
+  .main-content {
+    padding: 3rem 1.5rem;
   }
 }
