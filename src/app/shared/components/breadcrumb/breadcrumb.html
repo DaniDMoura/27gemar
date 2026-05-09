@@ -2,7 +2,7 @@
   <div class="container">
     <ol class="breadcrumb-list">
       <li class="breadcrumb-item">
-        <a routerLink="/">{{ variant === 'bar' ? 'Escoteiros do Brasil' : 'Página Principal' }}</a>
+        <a routerLink="/">{{ variant === 'bar' ? 'Página Principal' : 'Main' }}</a>
       </li>
       @for (item of breadcrumbs; track item.label; let isLast = $last) {
         <li class="breadcrumb-item separator" aria-hidden="true">{{ variant === 'bar' ? '>' : '/' }}</li>
