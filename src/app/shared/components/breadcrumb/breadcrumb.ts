@@ -18,6 +18,7 @@ export interface BreadcrumbItem {
 })
 export class Breadcrumb implements OnInit {
   @Input() currentPath: string = '';
+  @Input() variant: 'banner' | 'bar' = 'banner';
 
   private router = inject(Router);
   breadcrumbs: BreadcrumbItem[] = [];

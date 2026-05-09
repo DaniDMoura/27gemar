@@ -1,98 +1,91 @@
-<main class="page-layout">
-  <section class="page-hero">
-    <div class="overlay"></div>
-    <h1 class="animate-fade-in">O Escotismo</h1>
-  </section>
+<main class="escotismo-page">
+  <app-breadcrumb variant="bar" currentPath="O Escotismo"></app-breadcrumb>
 
-  <app-breadcrumb currentPath="O Escotismo"></app-breadcrumb>
+  <app-hero-mosaic 
+    title="O Escotismo" 
+    [images]="mosaicImages">
+  </app-hero-mosaic>
 
-  <article class="content-container">
-    <section class="intro animate-fade-up" style="--i: 0">
-      <div class="intro-grid">
-        <div class="intro-text">
-          <div class="text-section">
-            <h2>O Movimento</h2>
-            <p>
-              O Movimento Escoteiro foi criado para ser um movimento voltado ao jovem e também feito
-              por eles, com o apoio de adultos voluntários. É chamado de movimento por estar em
-              constante transformação, acompanhando as mudanças das gerações sem perder seu
-              propósito educacional. Por meio de atividades variadas e atraentes, o Escotismo
-              incentiva os jovens a assumirem seu próprio desenvolvimento e a se envolverem com a
-              comunidade, formando líderes engajados na construção de um mundo melhor, mais justo e
-              mais fraterno.
-            </p>
-          </div>
+  <article class="main-content">
+    <div class="content-grid">
+      <section class="text-column animate-fade-up">
+        <div class="text-section">
+          <h2>O Movimento</h2>
+          <p>
+            O Movimento Escoteiro foi criado para ser um movimento voltado ao jovem e também feito
+            por eles, com o apoio de adultos voluntários. É chamado de movimento por estar em
+            constante transformação, acompanhando as mudanças das gerações sem perder seu
+            propósito educacional. Por meio de atividades variadas e atraentes, o Escotismo
+            incentiva os jovens a assumirem seu próprio desenvolvimento e a se envolverem com a
+            comunidade, formando líderes engajados na construção de um mundo melhor, mais justo e
+            mais fraterno.
+          </p>
+        </div>
 
-          <div class="text-section">
-            <h2>Onde Acontece</h2>
-            <p>
-              É no grupo escoteiro que o Escotismo acontece de fato. Os jovens são atendidos por
-              adultos voluntários, chamados escotistas, que aplicam atividades e dinâmicas
-              educativas. Os participantes são divididos por faixa etária para que o Programa
-              Educativo possa ser trabalhado nas seis áreas de desenvolvimento: físico, intelectual,
-              social, afetivo, espiritual e de caráter, respeitando as características e
-              necessidades de cada fase da vida e o meio em que os jovens se desenvolvem.
-            </p>
-          </div>
+        <div class="text-section">
+          <h2>Onde Acontece</h2>
+          <p>
+            É no grupo escoteiro que o Escotismo acontece de fato. Os jovens são atendidos por
+            adultos voluntários, chamados escotistas, que aplicam atividades e dinâmicas
+            educativas. Os participantes são divididos por faixa etária para que o Programa
+            Educativo possa ser trabalhado nas seis áreas de desenvolvimento: físico, intelectual,
+            social, afetivo, espiritual e de caráter, respeitando as características e
+            necessidades de cada fase da vida e o meio em que os jovens se desenvolvem.
+          </p>
+        </div>
 
-          <div class="text-section">
-            <h2>Programa Educativo</h2>
-            <p>
-              O Programa Educativo foi pensado para estar inserido no cotidiano dos jovens,
-              promovendo crescimento pessoal e autonomia. Ele se adapta a diferentes realidades,
-              respeitando a individualidade de cada um. Baseado na Promessa e na Lei Escoteira,
-              contribui para a formação de cidadãos ativos, capazes de desempenhar um papel
-              construtivo na sociedade, com visão de futuro e compromisso com pequenas e boas ações
-              que transformam o mundo.
-            </p>
-          </div>
+        <div class="text-section">
+          <h2>Programa Educativo</h2>
+          <p>
+            O Programa Educativo foi pensado para estar inserido no cotidiano dos jovens,
+            promovendo crescimento pessoal e autonomia. Ele se adapta a diferentes realidades,
+            respeitando a individualidade de cada um. Baseado na Promessa e na Lei Escoteira,
+            contribui para a formação de cidadãos ativos, capazes de desempenhar um papel
+            construtivo na sociedade, com visão de futuro e compromisso com pequenas e boas ações
+            que transformam o mundo.
+          </p>
+        </div>
 
-          <div class="text-section">
-            <h2>Propósito e Visão</h2>
-            <p>
-              O Movimento Escoteiro valoriza a participação juvenil em processos de decisão e
-              espaços coletivos. É um movimento de educação não formal que complementa a família, a
-              escola e outras instituições, buscando o desenvolvimento integral e a educação
-              permanente dos jovens. Mundialmente, pretende ser o principal movimento educacional
-              juvenil, formando cidadãos baseados em valores comuns e no compromisso livre e
-              voluntário, unidos pela ideia de pensar global e agir local.
-            </p>
+        <div class="text-section">
+          <h2>Propósito e Visão</h2>
+          <p>
+            O Movimento Escoteiro valoriza a participação juvenil em processos de decisão e
+            espaços coletivos. É um movimento de educação não formal que complementa a família, a
+            escola e outras instituições, buscando o desenvolvimento integral e a educação
+            permanente dos jovens. Mundialmente, pretende ser o principal movimento educacional
+            juvenil, formando cidadãos baseados em valores comuns e no compromisso livre e
+            voluntário, unidos pela ideia de pensar global e agir local.
+          </p>
+        </div>
+      </section>
+
+      <aside class="side-column animate-fade-right">
+        <div class="video-card">
+          <app-youtube-player
+            videoUrl="https://www.youtube.com/watch?v=FvsrtlzIFD4"
+            title="Vídeo Institucional 27 GEMAR"
+          >
+          </app-youtube-player>
+          <div class="video-caption">
+            <h3>Conheça o Movimento</h3>
+            <p>Assista ao vídeo e descubra a essência do Movimento Escoteiro.</p>
           </div>
         </div>
 
-        <div class="intro-video">
-          <div class="video-card">
-            <app-youtube-player
-              videoUrl="https://www.youtube.com/watch?v=FvsrtlzIFD4"
-              title="Vídeo Institucional 27 GEMAR"
-            >
-            </app-youtube-player>
-            <div class="video-caption">
-              <h3>Conheça o Movimento</h3>
-              <p>Assista ao vídeo e descubra a essência do Movimento Escoteiro.</p>
-            </div>
-          </div>
+        <div class="links-box">
+          <h3>Links Úteis</h3>
+          <nav class="side-nav">
+            <a routerLink="/escotismo/lei-promessa" class="side-link">
+              <span>Lei e Promessa</span>
+              <span class="arrow">→</span>
+            </a>
+            <a routerLink="/escotismo/historia-do-movimento" class="side-link">
+              <span>História do Movimento</span>
+              <span class="arrow">→</span>
+            </a>
+          </nav>
         </div>
-      </div>
-    </section>
-
-    <section class="extra-sections animate-fade-up" style="--i: 2">
-      <div class="extra-grid">
-        <a routerLink="/escotismo/lei-promessa" class="extra-card">
-          <div class="extra-content">
-            <h3>Lei e Promessa</h3>
-            <p>Conheça os valores fundamentais que guiam todo escoteiro.</p>
-            <span class="card-link">Explorar →</span>
-          </div>
-        </a>
-        <a routerLink="/escotismo/historia-do-movimento" class="extra-card">
-          <div class="extra-content">
-            <h3>História do Movimento</h3>
-            <p>De Brownsea para o mundo: como tudo começou em 1907.</p>
-            <span class="card-link">Descobrir →</span>
-          </div>
-        </a>
-      </div>
-    </section>
+      </aside>
+    </div>
   </article>
 </main>

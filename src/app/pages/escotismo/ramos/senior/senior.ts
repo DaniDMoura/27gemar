@@ -1,43 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Breadcrumb } from '../../../../shared/components/breadcrumb/breadcrumb';
+import { HeroMosaic, MosaicImage } from '../../../../shared/components/hero-mosaic/hero-mosaic';
+import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
 
 @Component({
   selector: 'app-ramo-senior',
   standalone: true,
-  imports: [CommonModule, Breadcrumb],
-  template: `
-    <main class="page-layout">
-      <section class="page-hero">
-        <div class="overlay"></div>
-        <h1 class="animate-fade-in">Ramo Sênior</h1>
-      </section>
-
-      <app-breadcrumb currentPath="Sênior"></app-breadcrumb>
-
-      <section class="content-container">
-        <div class="intro animate-fade-up">
-          <h2>Sênior (15 a 17 anos)</h2>
-          <p>
-            O Ramo Sênior é voltado para jovens de 15 a 17 anos e marca uma fase de maior maturidade,
-            autoconhecimento e superação pessoal. Nesse período, os desafios se tornam mais intensos e
-            exigem preparo físico, emocional e tomada de decisão, incentivando cada jovem a
-            ultrapassar seus próprios limites.
-          </p>
-          <p>
-            As atividades envolvem experiências ao ar livre, técnicas mais avançadas e o contato com 
-            novas habilidades e tecnologias, sempre em equipe e com espírito de cooperação. 
-            Mantendo o lema “Sempre Alerta”, os seniores fortalecem a responsabilidade, a resiliência 
-            e o protagonismo, contando com o apoio da patrulha para enfrentar desafios e construir 
-            experiências marcantes.
-          </p>
-        </div>
-      </section>
-    </main>
-  `,
-  styles: [`
-    @use '../../../../shared/styles/layout';
-    .page-layout { @extend .page-layout; }
-  `]
+  imports: [CommonModule, Breadcrumb, HeroMosaic, CtaBox],
+  templateUrl: './senior.html',
+  styleUrl: './senior.scss'
 })
-export class RamoSenior {}
+export class RamoSenior {
+  mosaicImages: MosaicImage[] = [
+    { src: 'assets/escotismo/ramos/images/senior.jpg', alt: 'Sênior principal', type: 'main' },
+    { src: 'assets/escotismo/ramos/images/senior2.jpg', alt: 'Atividade sênior mato', type: 'side-top' },
+    { src: 'assets/escotismo/ramos/images/senior3.jpg', alt: 'Jovem sênior', type: 'side-bottom' }
+  ];
+}
