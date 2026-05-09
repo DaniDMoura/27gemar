@@ -1,4 +1,4 @@
-@use '../../shared/styles/variables' as vars;
+@use 'app/shared/styles/variables' as var;
 @use '../../shared/styles/layout';
 
 :host {
@@ -24,7 +24,7 @@
 
         h2 {
           font-size: 1.8rem;
-          color: vars.$black;
+          color: var.$black;
           margin-bottom: 1.25rem;
           font-weight: 600;
           letter-spacing: -0.5px;
@@ -48,15 +48,10 @@
 
       .video-card {
         background: #fff;
-        border-radius: 16px;
+        border-radius: var.$radius-lg;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        box-shadow: var.$shadow-md;
         border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: translateY(-5px);
-        }
 
         .video-caption {
           padding: 1.5rem;
@@ -89,7 +84,7 @@
   h2 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
-    color: vars.$black;
+    color: var.$black;
   }
 
   p {
@@ -108,28 +103,31 @@
 
   .ramo-card {
     background: #fff;
-    border-radius: 20px;
+    border-radius: var.$radius-lg;
     overflow: hidden;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var.$shadow-md;
+    transition: background-color var.$transition-base, border-color var.$transition-base, box-shadow var.$transition-base;
     border: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
 
     &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-      border-color: vars.$primary;
-
-      .ramo-image img {
-        transform: scale(1.1);
-      }
+      box-shadow: var.$shadow-lg;
+      border-color: var.$primary;
 
       .card-link {
-        color: vars.$primary;
-        padding-left: 5px;
+        color: var.$primary;
       }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var.$primary;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      opacity: 0.9;
     }
 
     .ramo-image {
@@ -140,7 +138,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
       }
     }
 
@@ -154,7 +151,7 @@
 
       h3 {
         font-size: 1.4rem;
-        color: vars.$black;
+        color: var.$black;
         margin-bottom: 0.5rem;
       }
 
@@ -170,7 +167,7 @@
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        transition: all 0.3s ease;
+        transition: color var.$transition-fast;
       }
     }
   }
@@ -188,26 +185,35 @@
     .extra-card {
       background: #f8f9fa;
       padding: 2.5rem;
-      border-radius: 16px;
+      border-radius: var.$radius-lg;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: background-color var.$transition-base, border-color var.$transition-base, box-shadow var.$transition-base;
       border: 1px solid transparent;
 
       &:hover {
         background: #fff;
-        border-color: vars.$primary;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        border-color: var.$primary;
+        box-shadow: var.$shadow-md;
 
-        h3 { color: vars.$primary; }
-        .card-link { padding-left: 5px; color: vars.$primary; }
+        h3 { color: var.$primary; }
+        .card-link { color: var.$primary; }
+      }
+
+      &:focus-visible {
+        outline: 2px solid var.$primary;
+        outline-offset: 2px;
+      }
+
+      &:active {
+        opacity: 0.9;
       }
 
       .extra-content {
         h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
-          color: vars.$black;
-          transition: color 0.3s ease;
+          color: var.$black;
+          transition: color var.$transition-fast;
         }
 
         p {
@@ -219,9 +225,9 @@
 
         .card-link {
           font-weight: 600;
-          color: vars.$primary;
+          color: var.$primary;
           display: inline-block;
-          transition: all 0.3s ease;
+          transition: color var.$transition-fast;
         }
       }
     }
