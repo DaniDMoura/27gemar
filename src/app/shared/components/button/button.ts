@@ -14,5 +14,5 @@ export class Button {
   @Input() text: string = '';
   @Input() mobileFullWidth: boolean = false;
   @Input() size: 'sm' | 'lg' = 'lg';
-  @Input() theme: 'glass' | 'solid-white' | 'outline' | 'ghost' = 'glass';
+  @Input() theme: 'glass' | 'solid-white' | 'outline' | 'ghost' | 'primary' = 'glass';
 }

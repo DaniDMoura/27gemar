@@ -1,0 +1,61 @@
+<main class="sede-page">
+  <app-breadcrumb variant="bar" currentPath="Nossa Sede"></app-breadcrumb>
+
+  <app-hero-mosaic title="Nossa Sede" [images]="mosaicImages"> </app-hero-mosaic>
+
+  <article class="main-content">
+    <div class="content-grid">
+      <!-- Left Column: Atmosphere and Text -->
+      <section class="text-column animate-fade-up">
+        <div class="text-section">
+          <h2>O Espaço do Grupo</h2>
+          <p class="section-description">
+            A sede do 27º GEMAR é o principal ponto de encontro para nossas atividades semanais. É
+            um espaço estruturado para garantir a segurança e o desenvolvimento dos nossos jovens
+            através do Método Escoteiro.
+          </p>
+          <p class="section-description">
+            Nossa estrutura foi cuidadosamente adaptada para atender às necessidades de todas as
+            faixas etárias do movimento. Contamos com uma ampla praça de formatura para nossas
+            cerimônias, áreas verdes para o treinamento de técnicas mateiras e pioneirias, além de
+            uma garagem de barcos que mantém vivas as nossas tradições navais. Cada seção — desde a
+            Alcateia até o Clã Pioneiro — possui seu próprio "cantinho", um espaço dedicado onde os
+            jovens guardam seus materiais, planejam suas aventuras e constroem a identidade de suas
+            equipes.
+          </p>
+          <p class="section-description">
+            Ter uma sede própria é fundamental para o fortalecimento do Escotismo. Ela proporciona
+            um ambiente seguro e controlado onde o Método Escoteiro pode ser aplicado em sua
+            plenitude. É o porto seguro onde nossos voluntários preparam as atividades, onde os pais
+            se reúnem e, acima de tudo, onde os jovens desenvolvem um profundo senso de
+            pertencimento e responsabilidade coletiva, cuidando do espaço que é a segunda casa de
+            todos nós.
+          </p>
+        </div>
+      </section>
+
+      <!-- Right Column: Location & Map -->
+      <aside class="side-column animate-fade-right">
+        <div class="location-card">
+          <div class="card-header">
+            <h3>Onde nos Encontrar</h3>
+            <div class="info-row">
+              <span class="label">Endereço</span>
+              <p class="value">
+                Rua Almirante Custódio de Melo, s/n<br />Jacuecanga, Angra dos Reis - RJ
+              </p>
+            </div>
+            <div class="info-row">
+              <span class="label">Atividades</span>
+              <p class="value">Aos sábados, das 14:00 às 17:00</p>
+            </div>
+          </div>
+
+          <div class="map-wrapper-override">
+            <app-map height="350px"></app-map>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+</main>

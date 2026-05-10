@@ -1,0 +1,22 @@
+<main class="chefia-page">
+  <app-breadcrumb variant="bar" currentPath="Chefia"></app-breadcrumb>
+
+  <app-hero-mosaic 
+    title="Chefia" 
+    [images]="mosaicImages">
+  </app-hero-mosaic>
+
+  <article class="main-content">
+    <section class="team-section animate-fade-up">
+      <div class="team-grid">
+        @for (member of members; track member.name) {
+          <app-person-card
+            [name]="member.name"
+            [role]="member.role"
+            [photo]="member.photo">
+          </app-person-card>
+        }
+      </div>
+    </section>
+  </article>
+</main>

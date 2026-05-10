@@ -13,8 +13,8 @@ import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
 })
 export class RamoSenior {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/ramos/images/senior.jpg', alt: 'Sênior principal', type: 'main' },
-    { src: 'assets/escotismo/ramos/images/senior2.jpg', alt: 'Atividade sênior mato', type: 'side-top' },
-    { src: 'assets/escotismo/ramos/images/senior3.jpg', alt: 'Jovem sênior', type: 'side-bottom' }
+    { src: 'assets/photos/ramos/senior/senior.jpg', alt: 'Sênior principal', type: 'main' },
+    { src: 'assets/photos/ramos/senior/senior2.jpg', alt: 'Atividade sênior mato', type: 'side-top' },
+    { src: 'assets/photos/ramos/senior/senior3.jpg', alt: 'Jovem sênior', type: 'side-bottom' }
   ];
 }

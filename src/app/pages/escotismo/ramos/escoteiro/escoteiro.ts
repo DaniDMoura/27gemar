@@ -9,24 +9,13 @@ import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
   standalone: true,
   imports: [CommonModule, Breadcrumb, HeroMosaic, CtaBox],
   templateUrl: './escoteiro.html',
-  styleUrl: './escoteiro.scss',
+  styleUrl: './escoteiro.scss'
 })
 export class RamoEscoteiro {
   mosaicImages: MosaicImage[] = [
-    {
-      src: 'assets/escotismo/ramos/images/escoteiro2.jpg',
-      alt: 'Escoteiro principal',
-      type: 'main',
-    },
-    {
-      src: 'assets/escotismo/ramos/images/escoteiro.jpg',
-      alt: 'Atividade vertical',
-      type: 'side-top',
-    },
-    {
-      src: 'assets/escotismo/ramos/images/escoteiro3.jpg',
-      alt: 'Atividade vertical',
-      type: 'side-bottom',
-    },
+    { src: 'assets/photos/ramos/escoteiro/escoteiro.jpg', alt: 'Escoteiro principal', type: 'main' },
+    { src: 'assets/photos/ramos/escoteiro/escoteiro2.jpg', alt: 'Atividade vertical', type: 'side-top' },
+    { src: 'assets/photos/ramos/escoteiro/escoteiro3.jpg', alt: 'Atividade Escoteira', type: 'side-bottom' }
+
   ];
 }

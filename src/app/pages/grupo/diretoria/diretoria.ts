@@ -1,33 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
+import { PersonCard } from '../../../shared/components/person-card/person-card';
+import { HeroMosaic, MosaicImage } from '../../../shared/components/hero-mosaic/hero-mosaic';
 
 @Component({
   selector: 'app-diretoria',
   standalone: true,
-  imports: [CommonModule, Breadcrumb],
-  template: `
-    <main class="page-layout">
-      <section class="page-hero">
-        <div class="overlay"></div>
-        <h1 class="animate-fade-in">Diretoria</h1>
-      </section>
-
-      <app-breadcrumb currentPath="Diretoria"></app-breadcrumb>
-
-      <article class="content-container">
-        <section class="diretoria-intro animate-fade-up">
-          <h2>Gestão Institucional</h2>
-          <p>
-            A diretoria é responsável pela administração do grupo, garantindo os recursos necessários para que as atividades ocorram e mantendo a regularidade institucional junto à UEB.
-          </p>
-        </section>
-      </article>
-    </main>
-  `,
-  styles: [`
-    @use '../../../shared/styles/layout';
-    .page-layout { @extend .page-layout; }
-  `]
+  imports: [CommonModule, Breadcrumb, PersonCard, HeroMosaic],
+  templateUrl: './diretoria.html',
+  styleUrl: './diretoria.scss'
 })
-export class Diretoria {}
+export class Diretoria {
+  mosaicImages: MosaicImage[] = [
+    { src: 'assets/photos/geral/escotismo.jpg', alt: 'Diretoria - Imagem 1', type: 'main' },
+    { src: 'assets/photos/ramos/lobinho/lobinho.jpg', alt: 'Diretoria - Imagem 2', type: 'side-top' },
+     { src: 'assets/photos/geral/diretoria.jpg', alt: 'Diretoria - Imagem 3', type: 'side-bottom' }
+  ];
+
+  members: {name: string, role: string, photo: string}[] = [];
+}

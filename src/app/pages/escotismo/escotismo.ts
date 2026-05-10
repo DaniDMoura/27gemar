@@ -14,8 +14,8 @@ import { HeroMosaic, MosaicImage } from '../../shared/components/hero-mosaic/her
 })
 export class Escotismo {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/ramos/images/escoteiro2.jpg', alt: 'Atividade escoteira', type: 'main' },
-    { src: 'assets/escotismo/escotismo.jpg', alt: 'Atividade sênior', type: 'side-top' },
-    { src: 'assets/escotismo/ramos/images/escoteiro.jpg', alt: 'Atividade lobinho', type: 'side-bottom' }
+    { src: 'assets/photos/ramos/escoteiro/escoteiro2.jpg', alt: 'Atividade escoteira', type: 'main' },
+    { src: 'assets/photos/geral/escotismo.jpg', alt: 'Atividade sênior', type: 'side-top' },
+    { src: 'assets/photos/ramos/escoteiro/escoteiro.jpg', alt: 'Atividade lobinho', type: 'side-bottom' }
   ];
 }

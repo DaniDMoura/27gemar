@@ -13,8 +13,8 @@ import { CtaBox } from '../../../shared/components/cta-box/cta-box';
 })
 export class HistoriaMovimento {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/historia/badenpowell.webp', alt: 'Baden-Powell com escoteiros', type: 'main' },
-    { src: 'assets/escotismo/historia/badenpowell.jpg', alt: 'Fundador do movimento', type: 'side-top' },
-    { src: 'assets/escotismo/historia/boysscout.jpg', alt: 'Placa histórica do Centro de Boy Scouts do Brasil', type: 'side-bottom' }
+    { src: 'assets/photos/historicas/badenpowell.webp', alt: 'Baden-Powell com escoteiros', type: 'main' },
+    { src: 'assets/photos/historicas/badenpowell.jpg', alt: 'Fundador do movimento', type: 'side-top' },
+    { src: 'assets/photos/historicas/boysscout.jpg', alt: 'Placa histórica do Centro de Boy Scouts do Brasil', type: 'side-bottom' }
   ];
 }

@@ -22,7 +22,7 @@ export class SeoService {
   
   private readonly defaultTitle = '27º Grupo Escoteiro do Mar Cornelis Verolme';
   private readonly defaultDescription = 'Desde 1981, dedicados ao desenvolvimento de crianças e jovens por meio do Método Escoteiro em Angra dos Reis.';
-  private readonly defaultImage = 'https://www.27gemar.org.br/assets/graph.webp'; // Update domain when live
+  private readonly defaultImage = 'https://www.27gemar.org.br/assets/illustrations/graph.webp'; // Update domain when live
 
   updateSeoConfig(config: SeoConfig): void {
     const title = config.title ? `${config.title} | ${this.defaultTitle}` : this.defaultTitle;
@@ -74,7 +74,7 @@ export class SeoService {
       "@type": "Organization",
       "name": "27º Grupo Escoteiro do Mar Cornelis Verolme",
       "url": "https://www.27gemar.org.br",
-      "logo": "https://www.27gemar.org.br/assets/logo.webp",
+      "logo": "https://www.27gemar.org.br/assets/logos/logo.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua Almirante Custodio de Melo, s/n",

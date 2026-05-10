@@ -13,7 +13,7 @@ import { YoutubePlayer } from '../../../shared/components/youtube-player/youtube
 })
 export class LeiPromessa {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/lei-promessa/promessa.jpg', alt: 'Escoteira saudando', type: 'main' },
-    { src: 'assets/escotismo/lei-promessa/promessa2.jpg', alt: 'Cerimônia de promessa', type: 'side-top' },
+    { src: 'assets/photos/geral/promessa.jpg', alt: 'Escoteira saudando', type: 'main' },
+    { src: 'assets/photos/geral/promessa2.jpg', alt: 'Cerimônia de promessa', type: 'side-top' }
   ];
 }
