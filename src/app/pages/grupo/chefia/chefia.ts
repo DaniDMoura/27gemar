@@ -1,43 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Breadcrumb } from '../../../shared/components/breadcrumb/breadcrumb';
+import { PersonCard } from '../../../shared/components/person-card/person-card';
+import { HeroMosaic, MosaicImage } from '../../../shared/components/hero-mosaic/hero-mosaic';
 
 @Component({
   selector: 'app-chefia',
   standalone: true,
-  imports: [CommonModule, Breadcrumb],
-  template: `
-    <main class="page-layout">
-      <section class="page-hero">
-        <div class="overlay"></div>
-        <h1 class="animate-fade-in">Chefia</h1>
-      </section>
-
-      <app-breadcrumb currentPath="Chefia"></app-breadcrumb>
-
-      <article class="content-container">
-        <section class="chefia-intro animate-fade-up">
-          <h2>Nossos Chefes</h2>
-          <p>
-            A chefia do 27º GEMAR é composta por voluntários dedicados que passam por constante formação para aplicar o Método Escoteiro com segurança e eficiência.
-          </p>
-          <div class="placeholder-grid">
-            <p>Conteúdo sobre os chefes de cada ramo em breve.</p>
-          </div>
-        </section>
-      </article>
-    </main>
-  `,
-  styles: [`
-    @use '../../../shared/styles/layout';
-    .page-layout { @extend .page-layout; }
-    .placeholder-grid {
-      padding: 2rem;
-      background: #f5f5f5;
-      border-radius: 8px;
-      text-align: center;
-      margin-top: 2rem;
-    }
-  `]
+  imports: [CommonModule, Breadcrumb, PersonCard, HeroMosaic],
+  templateUrl: './chefia.html',
+  styleUrl: './chefia.scss'
 })
-export class Chefia {}
+export class Chefia {
+  mosaicImages: MosaicImage[] = [
+    { src: 'assets/photos/ramos/senior/senior2.jpg', alt: 'Chefia - Imagem 1', type: 'main' },
+    { src: 'assets/photos/geral/promessa2.jpg', alt: 'Chefia - Imagem 2', type: 'side-vertical' }
+  ];
+
+  // Array vazio para adicionar membros futuramente
+  members: {name: string, role: string, photo: string}[] = [];
+}

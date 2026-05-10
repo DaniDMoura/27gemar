@@ -60,7 +60,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'nossa-historia',
-        loadComponent: () => import('./pages/grupo/nossa-historia/nossa-historia').then(m => m.NossaHistoria),
+        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderPage),
         data: { seo: { title: 'Nossa História' } }
       },
       {
@@ -86,17 +86,17 @@ export const routes: Routes = [
     children: [
       {
         path: 'eventos',
-        loadComponent: () => import('./pages/galeria/eventos/eventos').then(m => m.GaleriaEventos),
+        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderPage),
         data: { seo: { title: 'Eventos' } }
       },
       {
         path: 'acampamentos',
-        loadComponent: () => import('./pages/galeria/acampamentos/acampamentos').then(m => m.GaleriaAcampamentos),
+        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderPage),
         data: { seo: { title: 'Acampamentos' } }
       },
       {
         path: 'atividades-sede',
-        loadComponent: () => import('./pages/galeria/atividades-sede/atividades-sede').then(m => m.GaleriaSede),
+        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderPage),
         data: { seo: { title: 'Atividades na Sede' } }
       }
     ]

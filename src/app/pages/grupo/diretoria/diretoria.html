@@ -1,0 +1,22 @@
+<main class="diretoria-page">
+  <app-breadcrumb variant="bar" currentPath="Diretoria"></app-breadcrumb>
+
+  <app-hero-mosaic 
+    title="Diretoria" 
+    [images]="mosaicImages">
+  </app-hero-mosaic>
+
+  <article class="main-content">
+    <section class="team-section animate-fade-up">
+      <div class="team-grid">
+        @for (member of members; track member.name) {
+          <app-person-card
+            [name]="member.name"
+            [role]="member.role"
+            [photo]="member.photo">
+          </app-person-card>
+        }
+      </div>
+    </section>
+  </article>
+</main>

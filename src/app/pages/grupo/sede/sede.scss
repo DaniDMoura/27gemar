@@ -1,0 +1,121 @@
+@use 'app/shared/styles/variables' as var;
+
+:host {
+  display: block;
+}
+
+.sede-page {
+  padding-top: 72px;
+  background: #fff;
+}
+
+.main-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 5rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .text-column {
+    .text-section {
+      h2 {
+        font-size: 2.2rem;
+        color: #000;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .section-description {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 1rem;
+        max-width: 800px;
+      }
+
+      .text-block p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 2rem;
+        text-align: justify;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .side-column {
+    .location-card {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      position: sticky;
+      top: 100px;
+
+      .card-header {
+        padding: 2.5rem;
+        background-color: #fafafa;
+        border-bottom: 1px solid #eee;
+
+        h3 {
+          font-family: var.$font-main;
+          font-size: 1.5rem;
+          color: #000;
+          margin-bottom: 2rem;
+          font-weight: 600;
+        }
+
+        .info-row {
+          margin-bottom: 1.5rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .label {
+            display: block;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+
+          .value {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+          }
+        }
+      }
+
+      .map-wrapper-override {
+        // App map brings its own border, let's remove it to sit flush
+        ::ng-deep .map-wrapper {
+          border: none !important;
+          border-radius: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 3rem 1.5rem;
+  }
+}

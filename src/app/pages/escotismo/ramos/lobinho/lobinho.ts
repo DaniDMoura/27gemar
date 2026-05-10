@@ -13,7 +13,7 @@ import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
 })
 export class RamoLobinho {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/ramos/images/lobinho.jpg', alt: 'Lobinho principal', type: 'main' },
-    { src: 'assets/escotismo/ramos/images/lobinho2.jpg', alt: 'Atividade vertical', type: 'side-vertical' }
+    { src: 'assets/photos/ramos/lobinho/lobinho.jpg', alt: 'Lobinho principal', type: 'main' },
+    { src: 'assets/photos/ramos/lobinho/lobinho2.jpg', alt: 'Atividade vertical', type: 'side-vertical' }
   ];
 }

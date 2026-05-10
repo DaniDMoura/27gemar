@@ -13,7 +13,7 @@ import { CtaBox } from '../../../../shared/components/cta-box/cta-box';
 })
 export class RamoPioneiro {
   mosaicImages: MosaicImage[] = [
-    { src: 'assets/escotismo/ramos/images/pioneiro.jpg', alt: 'Pioneiro principal', type: 'main' },
-    { src: 'assets/escotismo/ramos/images/pioneiro2.jpg', alt: 'Atividade pioneira', type: 'side-vertical' }
+    { src: 'assets/photos/ramos/pioneiro/pioneiro.jpg', alt: 'Pioneiro principal', type: 'main' },
+    { src: 'assets/photos/ramos/pioneiro/pioneiro2.jpg', alt: 'Atividade pioneira', type: 'side-vertical' }
   ];
 }
