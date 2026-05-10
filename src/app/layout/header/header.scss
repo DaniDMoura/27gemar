@@ -263,7 +263,7 @@ header {
     background-color: $white;
     color: var.$black;
     z-index: 1000;
-    overflow-y: auto;
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -273,6 +273,24 @@ header {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+    }
+
+    .mobile-nav-viewport {
+      display: flex;
+      width: 200%; // Two panels side by side
+      height: 100%;
+      transition: transform var.$transition-slow;
+
+      &.submenu-active {
+        transform: translateX(-50%);
+      }
+    }
+
+    .mobile-panel {
+      width: 50%; // Each panel takes half of the 200% viewport
+      height: 100%;
+      overflow-y: auto;
+      flex-shrink: 0;
     }
 
     .mobile-nav-content {
@@ -288,11 +306,13 @@ header {
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.5rem;
     }
 
     .mobile-nav-item {
-      > a, .mobile-submenu-toggle {
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+
+      > a, .mobile-drilldown-toggle {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -300,68 +320,91 @@ header {
         background: none;
         border: none;
         font-family: var.$font-main;
-        font-size: 1.1rem;
-        font-weight: 400;
+        font-size: 1.25rem;
+        font-weight: 500;
         color: var.$black;
         text-decoration: none;
-        padding: 0.5rem 0;
+        padding: 1rem 0;
         cursor: pointer;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        text-align: left;
       }
 
       .chevron {
-        transition: transform var.$transition-base ease;
+        color: var.$primary;
+        opacity: 0.6;
+      }
+    }
+
+    // Submenu Panel Specifics
+    .submenu-header {
+      margin-bottom: 2rem;
+      
+      .back-button {
         display: flex;
         align-items: center;
-        justify-content: center;
-        &.rotated {
-          transform: rotate(180deg);
+        gap: 8px;
+        background: none;
+        border: none;
+        color: var.$primary;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0;
+        margin-bottom: 1rem;
+        cursor: pointer;
+      }
+
+      .submenu-title {
+        font-family: var.$font-title;
+        font-size: 2rem;
+        color: var.$black;
+        margin: 0;
+      }
+    }
+
+    .mobile-subcolumn {
+      margin-bottom: 2rem;
+
+      h4 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 1rem;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        li a {
+          display: block;
+          color: var.$black;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 400;
         }
       }
     }
 
-    .mobile-submenu {
-      display: none;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      padding-left: 1rem;
+    .mobile-sublink {
+      display: block;
+      padding: 1rem 0;
+      color: var.$black;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
 
-      &.open {
-        display: block;
-      }
-
-      .mobile-subcolumn {
-        h4 {
-          font-size: 0.85rem;
-          text-transform: uppercase;
-          color: #888;
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
-          letter-spacing: 1px;
-        }
-
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          li a {
-            display: block;
-            padding: 0.5rem 0;
-            color: #444;
-            text-decoration: none;
-            font-size: 1rem;
-          }
-        }
-      }
-
-      .mobile-sublink {
-        display: block;
-        padding: 0.75rem 0;
-        color: inherit;
-        text-decoration: none;
-        font-weight: 400;
-        font-size: 1rem;
-      }
+    .mobile-nav-actions {
+      margin-top: 1rem;
     }
   }
 
@@ -375,4 +418,3 @@ header {
     }
   }
 }
-

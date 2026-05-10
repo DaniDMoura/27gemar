@@ -136,71 +136,79 @@
 
   <!-- Mobile Navigation -->
   <div class="mobile-nav" [class.open]="menuOpen">
-    <div class="mobile-nav-content">
-      <ul class="mobile-nav-list">
-        @for (item of navItems; track item.label) {
-          @if (!item.isCTA) {
-            <li class="mobile-nav-item">
-              @if (item.route) {
-                <a [routerLink]="item.route" (click)="closeMenu()">{{ item.label }}</a>
-              } @else {
-                <button class="mobile-submenu-toggle" (click)="toggleSubmenu(item.label, $event)">
-                  {{ item.label }}
-                  <span class="chevron" [class.rotated]="isSubmenuOpen(item.label)">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </span>
-                </button>
-                <div class="mobile-submenu" [class.open]="isSubmenuOpen(item.label)">
-                  @for (child of item.children; track child.label) {
-                    @if (child.children) {
-                      <div class="mobile-subcolumn">
-                        <h4>{{ child.label }}</h4>
-                        <ul>
-                          @for (subChild of child.children; track subChild.label) {
-                            <li>
-                              <a [routerLink]="subChild.route" (click)="closeMenu()">{{
-                                subChild.label
-                              }}</a>
-                            </li>
-                          }
-                        </ul>
-                      </div>
-                    } @else if (child.route) {
-                      <a class="mobile-sublink" [routerLink]="child.route" (click)="closeMenu()">{{
-                        child.label
-                      }}</a>
-                    }
+    <div class="mobile-nav-viewport" [class.submenu-active]="activeMobileSubmenu">
+      
+      <!-- Panel 1: Main Menu -->
+      <div class="mobile-panel main-panel">
+        <div class="mobile-nav-content">
+          <ul class="mobile-nav-list">
+            @for (item of navItems; track item.label) {
+              @if (!item.isCTA) {
+                <li class="mobile-nav-item">
+                  @if (item.route && !item.children) {
+                    <a [routerLink]="item.route" (click)="closeMenu()">{{ item.label }}</a>
+                  } @else {
+                    <button class="mobile-drilldown-toggle" (click)="openMobileSubmenu(item)">
+                      {{ item.label }}
+                      <span class="chevron">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </span>
+                    </button>
                   }
-                </div>
+                </li>
               }
-            </li>
-          }
-        }
-      </ul>
-      <div class="mobile-nav-actions">
-        @for (item of navItems; track item.label) {
-          @if (item.isCTA && item.route) {
-            <app-button
-              [link]="item.route"
-              [text]="item.label"
-              theme="ghost"
-              [mobileFullWidth]="true"
-              (click)="closeMenu()"
-            ></app-button>
-          }
-        }
+            }
+          </ul>
+          <div class="mobile-nav-actions">
+            @for (item of navItems; track item.label) {
+              @if (item.isCTA && item.route) {
+                <app-button
+                  [link]="item.route"
+                  [text]="item.label"
+                  theme="ghost"
+                  [mobileFullWidth]="true"
+                  (click)="closeMenu()"
+                ></app-button>
+              }
+            }
+          </div>
+        </div>
       </div>
+
+      <!-- Panel 2: Submenu -->
+      <div class="mobile-panel submenu-panel">
+        <div class="mobile-nav-content">
+          <div class="submenu-header">
+            <button class="back-button" (click)="backToMainMenu()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              Voltar
+            </button>
+            <h2 class="submenu-title">{{ activeMobileSubmenu?.label }}</h2>
+          </div>
+
+          <div class="submenu-scroll-area">
+            @for (child of activeMobileSubmenu?.children; track child.label) {
+              @if (child.children) {
+                <div class="mobile-subcolumn">
+                  <h4>{{ child.label }}</h4>
+                  <ul>
+                    @for (subChild of child.children; track subChild.label) {
+                      <li>
+                        <a [routerLink]="subChild.route" (click)="closeMenu()">{{ subChild.label }}</a>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              } @else if (child.route) {
+                <a class="mobile-sublink" [routerLink]="child.route" (click)="closeMenu()">
+                  {{ child.label }}
+                </a>
+              }
+            }
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
