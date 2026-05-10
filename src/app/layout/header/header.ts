@@ -20,7 +20,8 @@ export class Header {
   isHovered = false; 
   navItems = NAVIGATION_DATA;
   
-  openSubmenus: { [key: string]: boolean } = {};
+  // New state for mobile sliding panels
+  activeMobileSubmenu: NavItem | null = null;
 
   constructor() {
     this.router.events.pipe(
@@ -40,21 +41,23 @@ export class Header {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
     if (!this.menuOpen) {
-      this.openSubmenus = {};
+      this.backToMainMenu();
     }
   }
 
   closeMenu() {
     this.menuOpen = false;
-    this.openSubmenus = {};
+    this.activeMobileSubmenu = null;
   }
 
-  toggleSubmenu(label: string, event: Event) {
-    event.stopPropagation();
-    this.openSubmenus[label] = !this.openSubmenus[label];
+  // Methods for drill-down mobile menu
+  openMobileSubmenu(item: NavItem) {
+    if (item.children) {
+      this.activeMobileSubmenu = item;
+    }
   }
 
-  isSubmenuOpen(label: string): boolean {
-    return !!this.openSubmenus[label];
+  backToMainMenu() {
+    this.activeMobileSubmenu = null;
   }
 }
