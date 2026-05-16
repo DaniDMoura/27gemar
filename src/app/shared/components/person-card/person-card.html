@@ -1,6 +1,6 @@
 <div class="person-card">
   <div class="photo-wrapper">
-    <img [src]="displayPhoto" [alt]="name" class="profile-photo" (error)="photo = ''">
+    <img [src]="displayPhoto" [alt]="name" class="profile-photo" (error)="onImageError()">
   </div>
   <h3 class="person-name">{{ name }}</h3>
   <p class="person-role">{{ role }}</p>

@@ -25,35 +25,16 @@
     margin-bottom: 2rem;
   }
 
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    input {
-      width: 100%;
-      padding: 14px 18px;
-      border-radius: var.$radius-sm;
-      border: 1px solid #ddd;
-      font-family: var.$font-main;
-      font-size: 14px;
-      color: #000;
-      background: #fafafa;
-      
-      &:focus {
-        outline: 2px solid #000; // Black outline instead of primary
-        border-color: transparent;
-      }
-    }
-
+  .cta-actions {
     ::ng-deep .full-width {
       width: 100%;
-      
-      .cta-button { 
+      display: block;
+
+      .cta-button {
         width: 100%;
         border-radius: var.$radius-sm;
-        border: 1px solid #ddd; // Adding a border to the white button so it's visible on white bg
-        
+        border: 1px solid #ddd;
+
         &:hover {
           background-color: #f9f9f9;
         }

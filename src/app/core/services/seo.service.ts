@@ -47,11 +47,11 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:image', content: image });
 
     // Twitter
-    this.meta.updateTag({ property: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ property: 'twitter:url', content: url });
-    this.meta.updateTag({ property: 'twitter:title', content: title });
-    this.meta.updateTag({ property: 'twitter:description', content: description });
-    this.meta.updateTag({ property: 'twitter:image', content: image });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:url', content: url });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
 
     this.updateCanonicalUrl(url);
   }
@@ -84,7 +84,7 @@ export class SeoService {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+55-24-99999-9999",
+        "telephone": "+55-24-97401-0894",
         "contactType": "customer service"
       }
     };

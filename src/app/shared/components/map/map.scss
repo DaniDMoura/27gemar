@@ -6,6 +6,11 @@
   overflow: hidden;
   border-radius: var.$radius-sm;
 
+  &.flush {
+    border: none;
+    border-radius: 0;
+  }
+
   .maps-button {
     position: absolute;
     top: 10px;

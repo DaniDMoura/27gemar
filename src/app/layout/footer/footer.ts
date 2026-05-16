@@ -1,5 +1,5 @@
-import { Component, OnInit, PLATFORM_ID, inject, signal, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MapComponent } from '../../shared/components/map/map';
 
 @Component({
@@ -10,9 +10,7 @@ import { MapComponent } from '../../shared/components/map/map';
   styleUrl: './footer.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Footer implements OnInit {
-  private platformId = inject(PLATFORM_ID);
-  
+export class Footer {
   currentYear = new Date().getFullYear();
 
   links = [
@@ -28,8 +26,4 @@ export class Footer implements OnInit {
     { name: 'Email: gemarcornelisverolme@gmail.com', url: 'mailto:gemarcornelisverolme@gmail.com' },
     { name: 'Telefone: (24) 97401-0894', url: 'tel:24974010894' },
   ];
-
-  ngOnInit(): void {
-
-  }
 }
