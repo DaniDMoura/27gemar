@@ -12,7 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class YoutubePlayer implements OnInit, OnChanges {
   private sanitizer = inject(DomSanitizer);
 
-  @Input({ required: true }) videoUrl: string = '';
+  @Input({ required: true }) videoUrl!: string;
   @Input() title: string = 'YouTube Video';
 
   safeUrl: SafeResourceUrl | null = null;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Button } from '../../shared/components/button/button';
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NAVIGATION_DATA, NavItem } from './nav-data';
 
 @Component({
@@ -17,16 +18,17 @@ export class Header {
   isScrolled = false;
   menuOpen = false;
   isOpaque = false;
-  isHovered = false; 
+  isHovered = false;
   navItems = NAVIGATION_DATA;
-  
+
   // New state for mobile sliding panels
   activeMobileSubmenu: NavItem | null = null;
 
   constructor() {
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      takeUntilDestroyed()
+    ).subscribe((event) => {
       const url = event.urlAfterRedirects || event.url;
       this.isOpaque = url !== '/' && url !== '';
       this.closeMenu();

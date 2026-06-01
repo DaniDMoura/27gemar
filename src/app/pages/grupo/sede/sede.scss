@@ -104,11 +104,7 @@
       }
 
       .map-wrapper-override {
-        // App map brings its own border, let's remove it to sit flush
-        ::ng-deep .map-wrapper {
-          border: none !important;
-          border-radius: 0 !important;
-        }
+        // MapComponent handles flush styles internally via [flush]="true"
       }
     }
   }

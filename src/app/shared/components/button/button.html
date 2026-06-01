@@ -1,6 +1,10 @@
-<a [routerLink]="link" class="cta-button" 
-   [class.mobile-full]="mobileFullWidth" 
+<a [routerLink]="link" class="cta-button"
+   [class.mobile-full]="mobileFullWidth"
    [class.btn-sm]="size === 'sm'"
-   [class]="theme">
+   [class.glass]="theme === 'glass'"
+   [class.solid-white]="theme === 'solid-white'"
+   [class.outline]="theme === 'outline'"
+   [class.ghost]="theme === 'ghost'"
+   [class.primary]="theme === 'primary'">
   {{ text }}
 </a>

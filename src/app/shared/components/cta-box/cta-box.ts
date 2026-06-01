@@ -12,6 +12,6 @@ import { Button } from '../button/button';
 export class CtaBox {
   @Input() title: string = 'QUERO PARTICIPAR';
   @Input() description: string = 'Venha viver esta aventura com a gente! Entre em contato para saber mais.';
-  @Input() placeholder: string = 'Seu email ou telefone';
   @Input() buttonText: string = 'PROCURAR';
+  @Input() link: string = '/fale-conosco';
 }

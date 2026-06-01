@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Breadcrumb } from '../../shared/components/breadcrumb/breadcrumb';
 import { MapComponent } from '../../shared/components/map/map';
 import { HeroMosaic, MosaicImage } from '../../shared/components/hero-mosaic/hero-mosaic';
-import { Button } from '../../shared/components/button/button';
 
 @Component({
   selector: 'app-contato',

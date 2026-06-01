@@ -13,8 +13,15 @@ export class PersonCard {
   @Input() role: string = '';
   @Input() photo: string = '';
 
-  // Fallback avatar if no photo is provided
+  fallbackTriggered = false;
+
   get displayPhoto(): string {
-    return this.photo || 'assets/icons/default-avatar.svg'; 
+    return this.fallbackTriggered || !this.photo ? 'assets/icons/default-avatar.svg' : this.photo;
+  }
+
+  onImageError(): void {
+    if (!this.fallbackTriggered) {
+      this.fallbackTriggered = true;
+    }
   }
 }

@@ -16,7 +16,6 @@ export interface MosaicImage {
 })
 export class HeroMosaic {
   @Input() title: string = '';
-  @Input() photoCredit: string = 'FOTO POR 27º GEMAR';
   @Input() images: MosaicImage[] = [];
 
   get hasTwoImages(): boolean {

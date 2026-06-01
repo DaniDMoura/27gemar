@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, DestroyRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NAVIGATION_DATA, NavItem } from '../../../layout/header/nav-data';
 
 export interface BreadcrumbItem {
@@ -21,13 +22,15 @@ export class Breadcrumb implements OnInit {
   @Input() variant: 'banner' | 'bar' = 'banner';
 
   private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
   breadcrumbs: BreadcrumbItem[] = [];
 
   ngOnInit() {
     this.updateBreadcrumbs(this.router.url);
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((event) => {
       this.updateBreadcrumbs(event.urlAfterRedirects || event.url);
     });
   }
