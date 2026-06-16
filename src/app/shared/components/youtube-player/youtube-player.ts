@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, input, computed } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -9,37 +9,22 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrl: './youtube-player.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class YoutubePlayer implements OnInit, OnChanges {
+export class YoutubePlayer {
   private sanitizer = inject(DomSanitizer);
 
-  @Input({ required: true }) videoUrl!: string;
-  @Input() title: string = 'YouTube Video';
+  videoUrl = input.required<string>();
+  title = input<string>('YouTube Video');
 
-  safeUrl: SafeResourceUrl | null = null;
-  isValid: boolean = false;
-
-  ngOnInit(): void {
-    this.updateVideo();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['videoUrl'] && !changes['videoUrl'].firstChange) {
-      this.updateVideo();
-    }
-  }
-
-  private updateVideo(): void {
-    const videoId = this.extractVideoId(this.videoUrl);
-    
+  safeUrl = computed<SafeResourceUrl | null>(() => {
+    const videoId = this.extractVideoId(this.videoUrl());
     if (videoId) {
       const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
-      this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      this.isValid = true;
-    } else {
-      this.safeUrl = null;
-      this.isValid = false;
+      return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
     }
-  }
+    return null;
+  });
+
+  isValid = computed<boolean>(() => this.safeUrl() !== null);
 
   /**
    * Robustly extracts YouTube Video ID from various URL formats.

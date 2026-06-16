@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, computed, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,9 +10,14 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Button {
-  @Input() link: string = '';
-  @Input() text: string = '';
-  @Input() mobileFullWidth: boolean = false;
-  @Input() size: 'sm' | 'lg' = 'lg';
-  @Input() theme: 'glass' | 'solid-white' | 'outline' | 'ghost' | 'primary' = 'glass';
+  link = input<string>('');
+  text = input<string>('');
+  mobileFullWidth = input<boolean>(false);
+  size = input<'sm' | 'lg'>('lg');
+  theme = input<'glass' | 'solid-white' | 'outline' | 'ghost' | 'primary'>('glass');
+
+  isExternalLink = computed(() => {
+    const url = this.link();
+    return url.startsWith('http://') || url.startsWith('https://');
+  });
 }

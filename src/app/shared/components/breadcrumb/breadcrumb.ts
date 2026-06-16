@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject, DestroyRef } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -18,8 +18,8 @@ export interface BreadcrumbItem {
   styleUrl: './breadcrumb.scss'
 })
 export class Breadcrumb implements OnInit {
-  @Input() currentPath: string = '';
-  @Input() variant: 'banner' | 'bar' = 'banner';
+  currentPath = input<string>('');
+  variant = input<'banner' | 'bar'>('banner');
 
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);
@@ -45,8 +45,8 @@ export class Breadcrumb implements OnInit {
       this.breadcrumbs = foundPath.filter((item, index) => 
         index === 0 || index === foundPath.length - 1 || item.route
       );
-    } else if (this.currentPath) {
-      this.breadcrumbs = [{ label: this.currentPath }];
+    } else if (this.currentPath()) {
+      this.breadcrumbs = [{ label: this.currentPath() }];
     } else {
       this.breadcrumbs = [];
     }

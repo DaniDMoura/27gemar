@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export interface MosaicImage {
@@ -15,14 +15,9 @@ export interface MosaicImage {
   styleUrl: './hero-mosaic.scss'
 })
 export class HeroMosaic {
-  @Input() title: string = '';
-  @Input() images: MosaicImage[] = [];
+  title = input<string>('');
+  images = input<MosaicImage[]>([]);
 
-  get hasTwoImages(): boolean {
-    return this.images.length === 2;
-  }
-
-  get hasThreeImages(): boolean {
-    return this.images.length === 3;
-  }
+  hasTwoImages = computed(() => this.images().length === 2);
+  hasThreeImages = computed(() => this.images().length === 3);
 }
