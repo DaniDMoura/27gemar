@@ -70,7 +70,7 @@ export const NAVIGATION_DATA: NavItem[] = [
   },
   {
     label: 'Seja Escoteiro',
-    route: 'https://wa.me/5524974010894?text=Ol%C3%A1%21%20Tenho%20interesse%20de%20participar%20do%2027%C2%BA%20GEMAR.%20Poderiam%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F',
+    route: 'https://wa.me/5524974010894?text=Ol%C3%A1%21%20Tenho%20interesse%20de%20participar%20do%2027%20GEMAR.%20Poderiam%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F',
     isCTA: true,
   },
 ];
