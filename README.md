@@ -1,4 +1,4 @@
-# 27º GEMAR - Pagina do Grupo
+# 27º GEMAR - Página do Grupo
 
 Site do 27º Grupo Escoteiro do Mar Cornelis Verolme, desenvolvido em Angular 21.
 
