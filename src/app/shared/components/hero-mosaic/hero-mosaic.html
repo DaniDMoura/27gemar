@@ -1,14 +1,14 @@
     <section class="hero-mosaic">
-      <div class="mosaic-grid" [ngClass]="{'has-three': hasThreeImages, 'has-two': hasTwoImages}">
-        @for (img of images; track $index) {
-          <div class="mosaic-item" [ngClass]="img.type">
+      <div class="mosaic-grid" [class.has-three]="hasThreeImages()" [class.has-two]="hasTwoImages()">
+        @for (img of images(); track $index) {
+          <div class="mosaic-item" [class]="img.type">
             <img [src]="img.src" [alt]="img.alt">
           </div>
         }
       </div>
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1 class="hero-title animate-fade-left">{{ title }}</h1>
+          <h1 class="hero-title animate-fade-left">{{ title() }}</h1>
         </div>
       </div>
     </section>

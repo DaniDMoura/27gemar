@@ -1,11 +1,11 @@
-<nav class="breadcrumb-container" [ngClass]="variant" aria-label="Breadcrumb">
+<nav class="breadcrumb-container" [class]="variant()" aria-label="Breadcrumb">
   <div class="container">
     <ol class="breadcrumb-list">
       <li class="breadcrumb-item">
-        <a routerLink="/">{{ variant === 'bar' ? 'Página Principal' : 'Main' }}</a>
+        <a routerLink="/">{{ variant() === 'bar' ? 'Página Principal' : 'Main' }}</a>
       </li>
       @for (item of breadcrumbs; track item.label; let isLast = $last) {
-        <li class="breadcrumb-item separator" aria-hidden="true">{{ variant === 'bar' ? '>' : '/' }}</li>
+        <li class="breadcrumb-item separator" aria-hidden="true">{{ variant() === 'bar' ? '>' : '/' }}</li>
         <li class="breadcrumb-item" [attr.aria-current]="isLast ? 'page' : null">
           @if (!isLast && item.route) {
             <a [routerLink]="item.route">{{ item.label }}</a>

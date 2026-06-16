@@ -1,7 +1,7 @@
 <div class="cta-box">
-  <h3>{{ title }}</h3>
-  <p>{{ description }}</p>
+  <h3>{{ title() }}</h3>
+  <p>{{ description() }}</p>
   <div class="cta-actions">
-    <app-button [link]="link" [text]="buttonText" theme="solid-white" class="full-width"></app-button>
+    <app-button [link]="link()" [text]="buttonText()" theme="solid-white" class="full-width"></app-button>
   </div>
 </div>

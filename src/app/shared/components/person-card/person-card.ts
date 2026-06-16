@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,19 +9,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './person-card.scss'
 })
 export class PersonCard {
-  @Input() name: string = '';
-  @Input() role: string = '';
-  @Input() photo: string = '';
+  name = input<string>('');
+  role = input<string>('');
+  photo = input<string>('');
 
-  fallbackTriggered = false;
+  fallbackTriggered = signal(false);
 
-  get displayPhoto(): string {
-    return this.fallbackTriggered || !this.photo ? 'assets/icons/default-avatar.svg' : this.photo;
-  }
+  displayPhoto = computed(() => {
+    return this.fallbackTriggered() || !this.photo() ? 'assets/icons/default-avatar.svg' : this.photo();
+  });
 
   onImageError(): void {
-    if (!this.fallbackTriggered) {
-      this.fallbackTriggered = true;
+    if (!this.fallbackTriggered()) {
+      this.fallbackTriggered.set(true);
     }
   }
 }
