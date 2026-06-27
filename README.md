@@ -1,6 +1,6 @@
-# 27º GEMAR - Página do Grupo
+# 27 GEMAR - Página do Grupo
 
-Site do 27º Grupo Escoteiro do Mar Cornelis Verolme, desenvolvido em Angular 21.
+Site do 27 Grupo Escoteiro do Mar Cornelis Verolme, desenvolvido em Angular 21.
 
 ## Configuração (Google Maps)
 O mapa exige uma API Key. Localize os arquivos em `src/environments/` e insira sua chave:
